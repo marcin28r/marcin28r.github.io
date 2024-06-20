@@ -8,11 +8,10 @@ body{
     justify-content: center;
 }
 nav{
-    padding-top: 0%;
-    margin-top: 0;
+    position: fixed;
+    top: 0px;
     width: 100%;
     height: 10vh;
-    margin-top: 0;
     background-color:rgb(150, 182, 197);
     display: flex;
     flex-direction: row;
@@ -29,19 +28,22 @@ nav a{
     height: 100%;
     color: black;
     font-family: Arial, sans-serif;
-    text-decoration: underline; /* Podkreślenie tekstu */
-    text-decoration-thickness: 2px; /* Grubość podkreślenia */
-    text-underline-offset: 10px; /* Odległość podkreślenia od tekstu */
+    text-decoration: underline; 
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 10px; 
     text-decoration-color: rgb(241, 240, 232);
     text-overflow: ellipsis;
     max-width: 20%; 
+}
+#content{
+    margin-top: 10vh;
 }
 #baner h1{
     padding: 0 20px 0 20px;
 }
 nav a:hover{
-    text-decoration-thickness: 4px; /* Grubość podkreślenia */
-    transition: 0.2s;
+    text-decoration-thickness: 6px; 
+    transition: 0.5s;
     /* font-weight: bold; */
 }
 #bottom-menu{
@@ -52,11 +54,6 @@ nav a:hover{
     justify-content: flex-end;
     align-items: center;
 }
-#scroll-area{
-    width: 100%;
-    height: 90vh;
-    overflow-y: scroll;
-}
 .test{
     display: flex;
     flex-direction: column;
@@ -65,7 +62,6 @@ nav a:hover{
     align-items: center;
     display: flex;
     justify-content: center;
-    /* border-radius: 0 50px; */
     color:  rgb(37, 104, 136);
     overflow: hidden;
 }
@@ -110,19 +106,8 @@ h1{
     .test img{
         float: right;
     }
-    nav{
-        width: 1200px;
-        justify-content: center;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #scroll-area{
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
+    nav a{
+        font-size: larger;
     }
     .test{
         flex-direction: row;
@@ -140,21 +125,8 @@ h1{
     }
 }
 @media only screen and (orientation: landscape) and  (max-height: 500px){
-    nav{
-        height: 100vh;
-        width: 10vw;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    nav a{
-        min-width: 100%;
-    }
     body{
         flex-direction: row;
-    }
-    #scroll-area{
-        height: 100vh;
-        width: 90vw;
     }
     #baner h1{
         padding: 0;
