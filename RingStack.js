@@ -34,11 +34,10 @@ class RingStack {
 
     }
 
-    clear(name){
-        const divElement = document.getElementById(name);
-        while (divElement.firstChild) {
-          divElement.removeChild(divElement.firstChild);
-        }
+    clear(){
+        this.stack.forEach(element => {
+          element.remove();
+        });
         this.stack = []
     }
 

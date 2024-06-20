@@ -109,28 +109,34 @@ class Hanoi {
                 divToScroll.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
             });
         };
+
+        const hanoi = this;
         //div hanoi complete
         this.divComplete = document.createElement('div');
         this.divComplete.classList.add('complete');
         
         this.renew_button = document.createElement('button');
         this.renew_button.textContent = 'Renew';
+        this.renew_button.addEventListener('click', function(){
+            hanoi.parent.removeChild(hanoi.divComplete);
+            hanoi.divComplete.classList.remove("active");
+            hanoi.fill();
+           });
         this.divComplete.appendChild(this.renew_button);
         
         this.new_hanoi_button = document.createElement('button');
         this.new_hanoi_button.textContent = 'NewGame';
+        this.new_hanoi_button.addEventListener('click', function(){
+            window.location.href = 'application.html';
+           });
         this.divComplete.appendChild(this.new_hanoi_button);
-        
-        
-        this.name_label = document.createElement('input');
-        this.name_label.type = 'text';
-        this.name_label.placeholder = 'name';
-        this.divComplete.appendChild(this.name_label);
          
-        this.save_button = document.createElement('button');
-        this.save_button.textContent = 'Save';
-        this.divComplete.appendChild(this.save_button);
-        const hanoi = this;
+        this.back_button = document.createElement('button');
+        this.back_button.textContent = 'Back';
+        this.back_button.addEventListener('click', function(){
+            window.location.href = 'index.html';
+           });
+        this.divComplete.appendChild(this.back_button);
         
         //auto
         if(this.help_autoMove){
@@ -172,6 +178,7 @@ class Hanoi {
            
            this.clock = document.createElement('a');
            this.divInfo.appendChild(this.clock);
+           this.clock.textContent = "00:00";
 
            if(this.help_map){
                this.divGui.appendChild(this.map_center_button);
@@ -219,12 +226,18 @@ class Hanoi {
     fill(){
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
+        this.A.clear();
+        this.B.clear();
+        this.C.clear();
+        this.buffer.clear();
 
         for (let i = this.stackHeight; i > 0; i--) { 
             this.A.addRing(new Ring(i, this.divA, this.stackHeight), this.pattern);
         }
 
-        if(this.help_move || this.help_map || this.help_autoMove){
+        if(this.start_node){
+            this.actual_node = this.start_node;
+        }else if(this.help_move || this.help_map || this.help_autoMove ){
             const nodes = new Node(this.divMap, this.stackHeight, this.divMap);
             this.divMap.style.width = `${(2**this.stackHeight)*80}px`;
             nodes.draw(this.help_map);
@@ -238,6 +251,7 @@ class Hanoi {
             }
             nodes.getTop(nodes).go();
             this.actual_node = nodes.getTop(nodes); 
+            this.start_node = this.actual_node;
             
         }
         if(this.help_map){
@@ -276,7 +290,7 @@ class Hanoi {
                     stack.parent.classList.add("wrong");
                 }
 
-                if(!this.auto_move_active){
+                if(!this.auto_move_active && this.help_autoMove){
                     this.auto_button.disabled = false;
                 }
             } else {
@@ -286,7 +300,7 @@ class Hanoi {
                     this.buffer.setRing(topRing);
                     stack.removeRing();
                     this.buffer.displayNumber(buffor, this.pattern);
-                    if(!this.auto_move_active){
+                    if(!this.auto_move_active && this.help_autoMove){
                         this.auto_button.disabled = true;
                     }
                 }
@@ -431,15 +445,15 @@ class Hanoi {
         const totalSeconds = Math.floor(milliseconds / 1000);
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = totalSeconds % 60;
-        const remainingMilliseconds = milliseconds % 1000;
 
         const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
         const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
-        const formattedMilliseconds = remainingMilliseconds < 10 ? '00' + remainingMilliseconds :
-                                      remainingMilliseconds < 100 ? '0' + remainingMilliseconds :
-                                      remainingMilliseconds;
 
-        return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+        if(formattedMinutes > 60){
+            return "!!:!!";
+        }else{
+            return `${formattedMinutes}:${formattedSeconds}`;
+        }
     }
 
     updateTimer() {
@@ -450,7 +464,7 @@ class Hanoi {
 
     start() {
         this.startTime = Date.now();
-        this.intervalId = setInterval(() => this.updateTimer(), 10);
+        this.intervalId = setInterval(() => this.updateTimer(), 1000);
     }
 
     stop() {
@@ -460,7 +474,7 @@ class Hanoi {
 
     reset() {
         this.stop();
-        this.clock.textContent = '00:00:000';
+        this.clock.textContent = '00:00';
     }
     };
     

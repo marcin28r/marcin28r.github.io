@@ -11,7 +11,7 @@ const language_content = {
       "nav-1": "Zasady",
       "nav-2": "Historia",
       "nav-3": "Algorytmy",
-      "nav-4": "Podręcznik",
+      "nav-4": "Aplikacja",
       "nav-5": "Układaj",
       "hanoi": "Wieże Hanoi"
     }

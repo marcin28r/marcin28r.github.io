@@ -29,8 +29,9 @@ class Buffer {
     }
 
     clear() {
-        this.ring.genHeight = this.ring.genHeight / 5;
-        this.ring.remove();
-        this.ring = null;
+        if(this.ring){
+            this.ring.remove();
+            this.ring = null;
+        }
     }
     }
