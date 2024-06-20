@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wieża Hanoi</title>
+    <link rel="stylesheet" href="style_1.css">
+    <script src="languages.js" defer></script>
+</head>
+<body>
+  <nav id="top-menu">
+    <a href="#rules" content="nav-1"></a>
+    <a href="#history" content="nav-2"></a>
+    <a href="#algorithms" content="nav-3"></a>
+    <a href="#app" content="nav-4"></a>
+    <a href="application.html" content="nav-5"></a>
+  </nav>
+  <div id="scroll-area">
+    <div id="content">
+      <div>
+        <button id="pl-button">Polski</button>
+        <button id="en-button">English</button>
+      </div>
+      <div class="test">
+        <h1 content="hanoi"></h1>
+      </div>
+      <h1 content="nav-1" id="rules">Zasady</h1>
+     <div class="test">
+      <a>
+        Przygotowanie gry polega na skonstruowaniu wieży z krążków na pierwszej tyczce
+      tak, aby średnica krążków malała wraz ze spiętrzaniem się wieży. Gra obejmuje
+      zaledwie trzy główne zasady:
+      
+      <ul>
+        <li>zawsze wyciągamy jeden krążek umieszczony na szczycie jednej z trzech tyczek;</li>
+        <li>można przekładać jeden krążek jednocześnie;</li>
+        <li>możemy położyć podniesiony krążek jedynie na taki o większej średnicy, lub tyczkę bez krążków;</li>
+      </ul>
+      Nadrzędnym celem gry jest przełożenie krążków tak aby odtworzyć początkową wieżę z pierwszej tyczki, na tyczce trzeciej.
+    </a>
+      <img src="content/hanoiABC2.png" alt="Układ Hanoi"> 
+    </div>
+      <h1 content="nav-2" id="history">Historia</h1>
+     <div class="test">
+      <a>Zagadka ta wywodzi się z Azji, a w Europie spopularyzował ją francuski matematyk. Hanoi jest to
+         miasto leżące na terenie Wietnamu, a wieża swoją budową
+        przypomina powstałe tam świątynie. Razem z zagadką popularna stała się legenda
+        mówiąca o tym, że gdy tamtejsi mnisi zakończą przekładanie wieży o 64 piętrach na stąpi
+         koniec świata. Według obliczeń najszybciej zrobią to w niecałe 600 miliardów lat.
+      </a>
+      </div>
+      <h1 content="nav-3" id="algorithms">Algorytmy</h1>
+     <div class="test">
+      <a>Powstało kilka podejść do rozwiązywania tego problemu. Dzięki ujednoliceniu
+        i rozłożeniu całego procesu przekładania na poszczególne etapy jesteśmy w stanie
+        systematycznie, krok po kroku, rozwiązywać łamigłówkę, nie martwiąc się mnogością
+        opcji. Podejście rekurencyjne czy iteracyjne ułatwiają rozwiązywanie powierzonego
+        nam zadania, tym bardziej jeśli zależy nam na optymalnej, czyli najmniejszej ilości
+        ruchów, jak i najszybszym czasie ułożenia.</a>
+        <img src="content/rekurencyjnie.png" alt="Układ Hanoi"> 
+        <img src="content/hanoi_binar.png" alt="Układ Hanoi"> 
+
+    </div>
+    <h1 content="nav-4" id="app">Podręcznik użytkownika</h1>
+     <div class="test">
+        <a>W celu zaznajomienia użytkownika z funkcjonowaniem aplikacji, aspekt informacyjny
+           obejmuje również poradnik dla użytkownika. Działanie to pozwoli na zaprezentowanie 
+           możliwości aplikacji, przez co użytkownik będzie mógł dostosować ją do
+        swoich własnych preferencji. Część interaktywna będzie pozwalała na dostosowanie
+        wyzwania do umiejętności, ambicji czy cierpliwości układającego.
+        Pozwoli na to konfigurator, który obejmuje możliwość dostosowania:
+        <ul>
+          <li>ilości krążków;</li>
+          <li>ułatwień układania wież;</li>
+          <li>kwesti widoczności czy estatycznych;</li>
+        </ul>
+      </a>
+    </div>
+
+    <div id="bottom-menu"><a>Marcin Oszczepińśki</a></div>
+   </div> 
+
+  </div>
+                
+</body>
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('pl-button').addEventListener('click', function() {
+        translateTo('pl');
+      });
+
+      document.getElementById('en-button').addEventListener('click', function() {
+        translateTo('en');
+      });
+    });
+</script>
+</html>

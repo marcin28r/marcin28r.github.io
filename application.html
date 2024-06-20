@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="Ring.js"></script> 
+  <script src="RingStack.js"></script> 
+  <script src="Buffer.js"></script> 
+  <script src="Node.js"></script> 
+  <script src="Hanoi.js"></script> 
+  <link rel="stylesheet" href="style_hanoi.css">
+  <link rel="stylesheet" href="style_configurator.css">
+  <title>Wieża Hanoi</title>
+</head>
+<body>
+  <div id="configurator_container">
+    <form id="configurator_form">
+
+        <div class="container_row">  
+          <a>Pierścienie</a>
+        </div>
+        
+        <div class="container_row" >
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" value="2" class="map_on">
+                    <div class="text" >2</div>  
+              </label>
+            </div>
+          
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" value="3" class="map_on">
+                    <div class="text" >3</div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" value="4" class="map_on">
+                    <div class="text" >4</div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" value="5" class="map_on">
+                    <div class="text" >5</div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" value="6" class="map_on">
+                    <div class="text" >6</div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" class="map_off" value="7">
+                    <div class="text" >7</div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="height" class="map_off" value="8">
+                    <div class="text" >8</div>  
+              </label>
+            </div>      
+        </div>
+
+
+        <div class="container_row" >
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="patern" value="wood" checked="checked">
+                    <div class="text" id="wood"> drewno </div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="patern" value="color">
+                    <div class="text" id="color"> kolor </div>  
+              </label>
+            </div>
+            <div class="radio_card_container">
+              <label>
+                    <input type="radio" name="patern" value="contrast">
+                    <div class="text " id="patern">wzór</div>  
+              </label>
+          </div>
+        </div>
+
+        <div class="container_row">
+            <a>Ułatwienia</a>
+        </div>
+
+        <div class="container_column">
+          <div class="radio_card_container">
+            <label>
+              <input type="checkbox" id="help_move">
+              <div class="text">pojedyncza podpowiedź</div>
+            </label>
+          </div>
+          <div class="radio_card_container">
+            <label>
+                  <input type="checkbox" id="can_be_added">
+                  <div class="text">odkładanie</div>
+            </label>
+          </div>
+          <div class="radio_card_container">
+              <label>
+                  <input type="checkbox" id="auto_move">
+                  <div class="text">automatyczne układanie</div>
+                </label>
+          </div>
+          <div class="radio_card_container">
+                <label>
+                  <input type="checkbox" id="map" >
+                  <div class="text">mapa</div>
+                </label>
+          </div>
+          <div class="radio_card_container" id="double-option">
+            <label>
+              <input type="checkbox"  id="double">
+              <div class="text">2 players</div>
+            </label>
+      </div>
+        </div>
+
+          <div class="container_column">
+            <div  id="comunicat_map" class="comunicat_off">
+              <div class="container_row">
+                <div class="text">mapa ruchów 7 i 8 krążków jest wyłączona</div>
+              </div>
+            </div>
+          </div>
+
+        <div class="container_row" >
+          <div>
+            <button id="startButton">Start</button>  
+          </div>
+        </div>
+
+    </form>
+        </div>
+     
+      
+      
+
+      <div id="mainContainer" ></div>
+
+ 
+  <script>
+         var no_map_element = document.querySelectorAll('.map_off');
+    no_map_element.forEach(function(element) {
+      element.addEventListener('click', disableMap)});
+      
+      function disableMap(){
+        document.getElementById("map").checked = false;
+        document.getElementById("map").disabled = true;
+        const comunicat = document.getElementById('comunicat_map');
+        if(! comunicat.classList.contains('comunicat_on')){
+          comunicat.classList.remove('comunicat_off');
+          comunicat.classList.toggle('comunicat_on');
+        }
+    };
+
+    var map_element = document.querySelectorAll('.map_on');
+    map_element.forEach(function(element) {
+      element.addEventListener('click', enableMap)});
+
+    function enableMap(){
+      document.getElementById("map").disabled = false;
+      const comunicat = document.getElementById('comunicat_map');
+      if(! comunicat.classList.contains('comunicat_off')){
+        comunicat.classList.remove('comunicat_on');
+        comunicat.classList.toggle('comunicat_off');
+      }
+    };
+    
+    
+    document.getElementById('startButton').addEventListener('click', function() {
+      const form = document.getElementById('configurator_form');
+      
+      var height = form.elements['height'].value;
+      var pattern = form.elements['patern'].value;
+      var help_move = document.getElementById('help_move').checked ? true : false;
+      var can_be_added = document.getElementById('can_be_added').checked ? true : false;
+      var auto_move = document.getElementById('auto_move').checked ? true : false;
+      var map = document.getElementById('map').checked ? true : false;
+      var double = document.getElementById('double').checked ? true : false;
+      
+      if(double){
+        const a = document.createElement('div');
+        a.classList.add("one-of-double");
+        document.getElementById('mainContainer').appendChild(a);
+        const b = document.createElement('div');
+        document.getElementById('mainContainer').appendChild(b);
+        b.classList.add("one-of-double");
+        document.getElementById('mainContainer').classList.add("double");
+
+
+        const ha = document.createElement('div');
+        a.appendChild(ha);
+        const hb = document.createElement('div');
+        b.appendChild(hb);
+
+        const h1 = new Hanoi(ha);
+        h1.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h1.fill();
+
+        const h2 = new Hanoi(hb);
+        h2.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h2.fill();
+      }else{
+        const h1 = new Hanoi(document.getElementById('mainContainer'));
+        h1.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h1.fill();
+      }
+
+
+      document.body.removeChild(document.getElementById("configurator_container"));
+    });
+
+  </script>
+</body>
+</html>
