@@ -290,9 +290,9 @@ body{
       border-radius: 0 20px 20px 0;
     }
 }
-@media only screen and (orientation: landscape) and (max-height: 1200px){
+@media only screen and (orientation: landscape) and (min-width: 1200px){
     .hanoi-container{
-        max-width: 1200px;
+        max-width: 1300px;
         height: 100%;
         
     }
