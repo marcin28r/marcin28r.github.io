@@ -53,6 +53,7 @@
     overflow: hidden;
 }
 .radio_card_container .text{
+    font-family: Arial, sans-serif;
     user-select: none;
     font-size: large;
     width: 100%;

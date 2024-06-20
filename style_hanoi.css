@@ -176,7 +176,7 @@ a{
     color: black;
     font-size: 55%;
     padding: 2px; 
-    border-radius: 3px; 
+    border-radius: 2px; 
     
   }
   .smallStackDiv{
@@ -233,7 +233,6 @@ a{
   flex-direction: column;
   align-items: center;
   gap: 2vh;
-  transition: 1s;
 }
 .complete.active button{
   flex-grow: 1;
@@ -247,7 +246,7 @@ a{
   margin-bottom: 20px;
 }
 .complete.active button:hover{
-  border: 3px solid rgb(81, 130, 155);
+  border: 2px solid rgb(81, 130, 155);
   transition: 0.2s;
   background-color: rgb(122, 221, 136);
 }
@@ -321,12 +320,6 @@ a{
         height: 100%;
         
     }
-}
-@media only screen and (min-width: 1600px){
-  .hanoi-container{
-      max-width: 1000px;
-      height: 100%; 
-  }
 }
 @media only screen and (min-width: 800px){
   .double{
