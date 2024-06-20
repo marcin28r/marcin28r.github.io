@@ -114,6 +114,12 @@ class Hanoi {
         //div hanoi complete
         this.divComplete = document.createElement('div');
         this.divComplete.classList.add('complete');
+
+        this.complete_moves = document.createElement('a');
+        this.divComplete.appendChild(this.complete_moves);
+
+        this.complete_clock = document.createElement('a');
+        this.divComplete.appendChild(this.complete_clock);
         
         this.renew_button = document.createElement('button');
         this.renew_button.textContent = 'Renew';
@@ -121,9 +127,13 @@ class Hanoi {
             hanoi.parent.removeChild(hanoi.divComplete);
             hanoi.divComplete.classList.remove("active");
             hanoi.moves_count = 0;
-            hanoi.auto_move_active = false;
-            hanoi.auto_button.classList.remove("active");
-            hanoi.hint_button.disabled = false;
+            if(hanoi.auto_button){
+                hanoi.auto_move_active = false;
+                hanoi.auto_button.classList.remove("active");
+            }
+            if(hanoi.hint_button){
+                hanoi.hint_button.disabled = false;
+            }
             hanoi.fill();
            });
         this.divComplete.appendChild(this.renew_button);
@@ -432,6 +442,8 @@ class Hanoi {
     }
 
     hanoi_complete(){
+        this.complete_clock.textContent = this.clock.textContent;
+        this.complete_moves.textContent = this.moves.textContent;
         this.parent.appendChild(this.divComplete);
         this.divComplete.classList.add("active");
     }
