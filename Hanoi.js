@@ -121,6 +121,9 @@ class Hanoi {
             hanoi.parent.removeChild(hanoi.divComplete);
             hanoi.divComplete.classList.remove("active");
             hanoi.moves_count = 0;
+            hanoi.auto_move_active = false;
+            hanoi.auto_button.classList.remove("active");
+            hanoi.hint_button.disabled = false;
             hanoi.fill();
            });
         this.divComplete.appendChild(this.renew_button);
