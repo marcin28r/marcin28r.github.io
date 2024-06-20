@@ -120,6 +120,7 @@ class Hanoi {
         this.renew_button.addEventListener('click', function(){
             hanoi.parent.removeChild(hanoi.divComplete);
             hanoi.divComplete.classList.remove("active");
+            hanoi.moves_count = 0;
             hanoi.fill();
            });
         this.divComplete.appendChild(this.renew_button);
@@ -144,13 +145,12 @@ class Hanoi {
             this.auto_button.textContent = 'Auto';
             this.auto_button.addEventListener('click', function(){
                if(hanoi.auto_move_active == true){
-                   hanoi.auto_move_active = false;
-                   hanoi.hint_button.disabled = false;
-                   hanoi.auto_button.classList.remove("active");
-               }else{
-                   hanoi.auto_move_active = true;
-                   hanoi.auto_button.classList.add("active");
-                   hanoi.autoMove();
+                    hanoi.auto_move_active = false;
+               }
+               if(hanoi.auto_move_active == false && !hanoi.auto_button.classList.contains("active")){
+                    hanoi.auto_move_active = true;
+                    hanoi.auto_button.classList.add("active");
+                    hanoi.autoMove();
                }
             });
 
@@ -238,19 +238,20 @@ class Hanoi {
         if(this.start_node){
             this.actual_node = this.start_node;
         }else if(this.help_move || this.help_map || this.help_autoMove ){
-            const nodes = new Node(this.divMap, this.stackHeight, this.divMap);
+            var nodes = new Node(this.divMap, this.stackHeight, this.divMap);
             this.divMap.style.width = `${(2**this.stackHeight)*80}px`;
             nodes.draw(this.help_map);
             nodes.connect();
+            var top_node = nodes.getTop(nodes);
 
             for (let i = 0; i < this.stackHeight; i++) {
-                nodes.getTop(nodes).hanoi.push("a");
+                top_node.hanoi.push("a");
             }
             if(this.help_map){
-                nodes.getTop(nodes).show();
+                top_node.show();
             }
-            nodes.getTop(nodes).go();
-            this.actual_node = nodes.getTop(nodes); 
+            top_node.getTop(nodes).go();
+            this.actual_node = top_node; 
             this.start_node = this.actual_node;
             
         }
@@ -373,7 +374,9 @@ class Hanoi {
 
     autoMove(){
         if(this.auto_move_active){
-            this.hint_button.disabled = true;
+            if(this.hint_button){
+                this.hint_button.disabled = true;
+            }
             var from = this.actual_node.help_from();
             var to = this.actual_node.help_to();
             // this.auto_button.disabled = true;
@@ -417,9 +420,11 @@ class Hanoi {
                         }, 400);
                     }, 300); 
                 }, 400); 
-    
                 this.help_canBeAdded = true;
             }
+        }else{
+            this.auto_button.classList.remove("active");
+            this.hint_button.disabled = false;
         }
     }
 

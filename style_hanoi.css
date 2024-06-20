@@ -90,7 +90,7 @@ body{
     font-size: x-large;
     border: 2px solid rgb(37, 36, 37);
     border-bottom: 0;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
   }
   .gui_buttons:first-child{
     border-left: 0;
@@ -209,7 +209,7 @@ body{
     grid-column: 11/13;
     border: 2px solid rgb(37, 36, 37);
     z-index: 5;
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 10px;
     background-color: rgb(150, 182, 197);
     border-top: 0;
     border-right: 0;
@@ -227,7 +227,7 @@ body{
   background-color: rgb(150, 182, 197);;
   border-radius: 20px;
   border: 3px solid rgb(37, 36, 37);
-  grid-row: 2/7;
+  grid-row: 7/11;
   grid-column: 3/11;
   z-index: 10;
   display: flex;
@@ -242,7 +242,7 @@ body{
   width: 200px;
   font-size: x-large;
   border: 2px solid rgb(37, 36, 37);
-  border-radius: 20px;
+  border-radius: 10px;
 }
   @media only screen and (orientation: landscape) and (max-height: 500px){
     .ring{
@@ -265,17 +265,17 @@ body{
       grid-row: 1;
     }
     .map-container {
-        grid-column: 1/5;
-        grid-row: 1/12
+      grid-column: 1/5;
+      grid-row: 1/12
     }
     .expand-map{
-        grid-row: 1/1;
-        grid-column: 1/1;
-        border-radius: 0 0 20px 0;
-        border-top: 0;
-        border-left: 0;
-        border-right: solid 2px black;
-      }
+      grid-row: 1/1;
+      grid-column: 1/1;
+      border-radius: 0 0 10px 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: solid 2px black;
+    }
       .gui_buttons{
         grid-column-start: 1/13;
         grid-row: 12;
@@ -301,6 +301,10 @@ body{
       border: 2px solid rgb(37, 36, 37);
       border-left: 0;
       border-radius: 0 20px 20px 0;
+    }
+    .complete.active{
+      grid-row: 3/11;
+      grid-column: 6/12;
     }
 }
 @media only screen and (min-width: 1200px){
