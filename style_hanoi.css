@@ -9,7 +9,7 @@ body{
 }
 .hanoi-container{
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: grid;
     overflow: hidden;
     grid-template-columns:  repeat(12, 1fr);
