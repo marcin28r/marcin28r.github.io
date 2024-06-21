@@ -51,18 +51,18 @@ footer{
 section{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    width: auto;
     background-color:rgb(255, 255, 255);
     align-items: center;
     display: flex;
     justify-content: center;
     color:  rgb(37, 104, 136);
-    overflow: hidden;
     border-radius: 20px 0 20px 0;
 }
 section a{
     font-family: Georgia, serif;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
     color:  rgb(37, 104, 136);
     padding: 30px 20px 30px 20px;
 }
@@ -76,6 +76,7 @@ h1{
 section img{
     width: 100%;
     max-width: 500px;
+
 }
 main{
     margin-top: 10vh;
@@ -91,30 +92,51 @@ main{
 }
 header h1{
     font-size: 44px;
-    height: 70px;
     width: 100%;
+    color: white;
 }
-@media screen and (min-width: 1200px) {
-    section a{
-        color: rgb(14, 14, 14);
-        float: left;
+section div a{
+    float: left;
+    width: auto;
+}
+section div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+@media screen and (min-width: 800px) {
+    section div a{
+        width: 50%;
     }
-    section img{
+    section div img{
         float: right;
+        width: 45%;
     }
-    nav{
-        gap: 20px;
+    section div{
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: center;
+        width: 100%;
     }
     nav a{
-        font-size: larger;
+        font-size: medium;
         margin-left: 20px;
         margin-right: 20px;
         
     }
+}
+@media screen and (min-width: 1200px) {
+    nav a{
+        font-size: larger;
+    }
     section{
-        flex-direction: row;
-        width: 100%;
+        border-radius: 10px;
+        border: 3px solid rgb(155, 176, 193);
+    }
+    nav{
+        gap: 20px;
+        justify-content: center;
     }
     main{
         width: 1200px;
@@ -127,8 +149,3 @@ header h1{
         background-color:rgb(255, 255, 255);
     }
 }
-@media only screen and (orientation: landscape) and  (max-height: 500px){
-    body{
-        flex-direction: row;
-    }
-  }

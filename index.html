@@ -9,11 +9,11 @@
 </head>
 <body>
   <nav>
-    <a href="#history" content="nav-2"></a>
-    <a href="#rules" content="nav-1"></a>
-    <a href="#algorithms" content="nav-3"></a>
-    <a href="#app" content="nav-4"></a>
-    <a href="application.html" content="nav-5"></a>
+    <a  onclick="scrollToElement(event, 'history')" content="nav-2"></a>
+    <a  onclick="scrollToElement(event, 'rules')" content="nav-1"></a>
+    <a  onclick="scrollToElement(event, 'algorithms')" content="nav-3"></a>
+    <a  onclick="scrollToElement(event, 'app')"content="nav-4"></a>
+    <a href="application.html"  content="nav-5"></a>
   </nav>
   <main>
     <div>
@@ -36,29 +36,33 @@
 
     <section id="rules">
       <h1 content="nav-1">Zasady</h1>
-      <a>
-        Przygotowanie gry polega na skonstruowaniu wieży z krążków na pierwszej tyczce
-        tak, aby średnica krążków malała wraz ze spiętrzaniem się wieży. Gra obejmuje
-        zaledwie trzy główne zasady:
-        <ul>
-          <li>zawsze wyciągamy jeden krążek umieszczony na szczycie jednej z trzech tyczek;</li>
-          <li>można przekładać jeden krążek jednocześnie;</li>
-          <li>możemy położyć podniesiony krążek jedynie na taki o większej średnicy, lub tyczkę bez krążków;</li>
-        </ul>
-        Nadrzędnym celem gry jest przełożenie krążków tak aby odtworzyć początkową wieżę z pierwszej tyczki, na tyczce trzeciej.
-      </a>
-      <img src="content/hanoiABC2.png" alt="Układ Hanoi"> 
+      <div>
+        <a>
+          Przygotowanie gry polega na skonstruowaniu wieży z krążków na pierwszej tyczce
+          tak, aby średnica krążków malała wraz ze spiętrzaniem się wieży. Gra obejmuje
+          zaledwie trzy główne zasady:
+          <ul>
+            <li>zawsze wyciągamy jeden krążek umieszczony na szczycie jednej z trzech tyczek;</li>
+            <li>można przekładać jeden krążek jednocześnie;</li>
+            <li>możemy położyć podniesiony krążek jedynie na taki o większej średnicy, lub tyczkę bez krążków;</li>
+          </ul>
+          Nadrzędnym celem gry jest przełożenie krążków tak aby odtworzyć początkową wieżę z pierwszej tyczki, na tyczce trzeciej.
+        </a>
+        <img src="content/hanoiABC2.png" alt="Układ Hanoi"> 
+      </div>
     </section>
 
       <section id="algorithms">
-       <h1 content="nav-3">Algorytmy</h1>
-      <a>Powstało kilka podejść do rozwiązywania tego problemu. Dzięki ujednoliceniu
-        i rozłożeniu całego procesu przekładania na poszczególne etapy jesteśmy w stanie
-        systematycznie, krok po kroku, rozwiązywać łamigłówkę, nie martwiąc się mnogością
-        opcji. Podejście rekurencyjne czy iteracyjne ułatwiają rozwiązywanie powierzonego
-        nam zadania, tym bardziej jeśli zależy nam na optymalnej, czyli najmniejszej ilości
-        ruchów, jak i najszybszym czasie ułożenia.</a>
-        <img src="content/rekurencyjnie.png" alt="Układ Hanoi"> 
+        <h1 content="nav-3">Algorytmy</h1>
+        <div>
+          <a>Powstało kilka podejść do rozwiązywania tego problemu. Dzięki ujednoliceniu
+            i rozłożeniu całego procesu przekładania na poszczególne etapy jesteśmy w stanie
+            systematycznie, krok po kroku, rozwiązywać łamigłówkę, nie martwiąc się mnogością
+            opcji. Podejście rekurencyjne czy iteracyjne ułatwiają rozwiązywanie powierzonego
+            nam zadania, tym bardziej jeśli zależy nam na optymalnej, czyli najmniejszej ilości
+            ruchów, jak i najszybszym czasie ułożenia.</a>
+            <img src="content/rekurencyjnie.png" alt="Układ Hanoi"> 
+        </div>
         <img src="content/hanoi_binar.png" alt="Układ Hanoi"> 
 
     </section>
@@ -94,5 +98,20 @@
         translateTo('en');
       });
     });
+
+    function scrollToElement(event, id) {
+      event.preventDefault(); 
+      const element = document.getElementById(id);
+      const offset = window.innerHeight * 0.1;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+  });
+}
 </script>
 </html>
