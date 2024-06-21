@@ -240,16 +240,16 @@ class Hanoi {
     fill(){
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
-        this.A.clear();
-        this.B.clear();
-        this.C.clear();
-        this.buffer.clear();
-
+        
         for (let i = this.stackHeight; i > 0; i--) { 
             this.A.addRing(new Ring(i, this.divA, this.stackHeight), this.pattern);
         }
-
+        
         if(this.start_node){
+            this.A.clear();
+            this.B.clear();
+            this.C.clear();
+            this.buffer.clear();
             this.actual_node = this.start_node;
         }else if(this.help_move || this.help_map || this.help_autoMove ){
             var nodes = new Node(this.divMap, this.stackHeight, this.divMap);

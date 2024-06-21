@@ -9,13 +9,13 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
 }
 .container_column{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 .container_row{
     gap: 5px;
@@ -25,8 +25,7 @@
 }
 .radio_card_container{
     width: 100%;
-    color: rgb(60, 107, 107);;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(155, 176, 193);
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     overflow: hidden;
@@ -34,7 +33,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 6px 6px;
 }
 .radio_card_container:hover{
     border: 2px solid rgb(81, 130, 155);
@@ -109,7 +107,6 @@
     min-height: 30px;
     border-radius: 10px;
     font-size: larger;
-    box-shadow: 3px 3px;
 }
 #startButton:hover{
     background-color: rgb(122, 221, 136);
@@ -117,16 +114,10 @@
 #configurator_container a{
     font-size: x-large;
 }
-.radio_card_container:has(label input[type=radio]:enabled:checked),
-.radio_card_container:has(label input[type=checkbox]:enabled:checked){
-    border: 2px solid rgb(60, 107, 107);
-    box-shadow: 5px 3px;
-    transition: 0.5;
-}
-
 .radio_card_container label input[type=radio]:enabled:checked + .text,
 .radio_card_container label input[type=checkbox]:enabled:checked + .text{
     background-color: rgb(122, 221, 136);
+    transition: 0.5s;
 }
 .radio_card_container label input[type=checkbox]:disabled + .text{
     background-color: rgb(219, 219, 219);
@@ -172,7 +163,6 @@
 #double-option{
     width: 0;
     height: 0;
-    box-shadow: none;
 }
 h1 {
     font-family: Arial, sans-serif;
@@ -200,7 +190,6 @@ h1 {
     color: white;
     background-color: rgb(150, 182, 197);
     z-index: 8;
-    box-shadow: none;
 }
 @media only screen and (min-height: 600px) and (min-width: 500px){
     .text-disable{
