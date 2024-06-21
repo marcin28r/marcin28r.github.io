@@ -86,7 +86,7 @@ class Hanoi {
         this.parent.appendChild(this.divInfo);
         
         this.map_center_button = document.createElement('button');
-        this.map_center_button.textContent = "center";
+        this.map_center_button.textContent = "Center";
         
         
         
@@ -156,6 +156,7 @@ class Hanoi {
         if(this.help_autoMove){
             this.auto_button = document.createElement('button');
             this.auto_button.textContent = 'Auto';
+            
             this.auto_button.addEventListener('click', function(){
                if(hanoi.auto_move_active == true){
                     hanoi.auto_move_active = false;
@@ -437,7 +438,9 @@ class Hanoi {
             }
         }else{
             this.auto_button.classList.remove("active");
-            this.hint_button.disabled = false;
+            if(this.hint_button){
+                this.hint_button.disabled = false;
+            }
         }
     }
 
