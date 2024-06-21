@@ -105,13 +105,6 @@ section div{
     justify-content: center;
     flex-direction: column;
 }
-main div{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 5px;
-}
 main div button{
     width: 32px;
     height: 20px;
