@@ -16,10 +16,7 @@
   <div id="configurator_container">
     <form id="configurator_form">
 
-        <div class="container_row">  
-          <a>Pierścienie</a>
-        </div>
-        
+        <h1>Pierścienie</h1>
         <div class="container_row" >
             <div class="radio_card_container">
               <label>
@@ -88,9 +85,7 @@
           </div>
         </div>
 
-        <div class="container_row">
-            <a>Ułatwienia</a>
-        </div>
+        <h1>Ułatwienia</h1>
 
         <div class="container_column">
           <div class="radio_card_container">
@@ -115,6 +110,7 @@
                 <label>
                   <input type="checkbox" id="map" >
                   <div class="text">mapa</div>
+                  <div class="text-disable" >mapa ruchów 7 i 8 krążków jest wyłączona</div>
                 </label>
           </div>
           <div class="radio_card_container" id="double-option">
@@ -125,13 +121,7 @@
       </div>
         </div>
 
-          <div class="container_column">
-            <div  id="comunicat_map" class="comunicat_off">
-              <div class="container_row">
-                <div class="text">mapa ruchów 7 i 8 krążków jest wyłączona</div>
-              </div>
-            </div>
-          </div>
+    
 
         <div class="container_row" >
           <div>
@@ -156,11 +146,6 @@
       function disableMap(){
         document.getElementById("map").checked = false;
         document.getElementById("map").disabled = true;
-        const comunicat = document.getElementById('comunicat_map');
-        if(! comunicat.classList.contains('comunicat_on')){
-          comunicat.classList.remove('comunicat_off');
-          comunicat.classList.toggle('comunicat_on');
-        }
     };
 
     var map_element = document.querySelectorAll('.map_on');
@@ -169,11 +154,6 @@
 
     function enableMap(){
       document.getElementById("map").disabled = false;
-      const comunicat = document.getElementById('comunicat_map');
-      if(! comunicat.classList.contains('comunicat_off')){
-        comunicat.classList.remove('comunicat_on');
-        comunicat.classList.toggle('comunicat_off');
-      }
     };
     
     

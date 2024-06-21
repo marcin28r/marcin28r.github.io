@@ -42,7 +42,8 @@
     width: 100%;
     height: 6vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 .radio_card_container label input {
     position: absolute;
@@ -57,6 +58,8 @@
     user-select: none;
     font-size: large;
     width: 100%;
+    height: 100%;
+    color: rgb(37, 104, 136);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,6 +112,7 @@
     border-radius: 0;
     width: 100px;
     height: 6vh;
+    min-height: 30px;
     border-radius: 10px;
     font-size: larger;
 }
@@ -119,47 +123,75 @@
     font-size: x-large;
 }
 .radio_card_container label input[type=checkbox]:disabled + .text{
-    background-color: rgb(83, 83, 83);
+    background-color: rgb(219, 219, 219);
+    height: 0;
+    color: rgb(219, 219, 219);
+    overflow: hidden;
     pointer-events: none;
-    opacity: 0.2;
     transition: 0.5s;
 }
-.comunicat_on{
-    width: 100%;
-    height: 50px;
-    color: red;
-    overflow: hidden;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: 1s;
-    user-select: none;
+.radio_card_container label input[type=checkbox]:enabled + .text{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
 }
-.comunicat_off{
-    width: 100%;
-    color: rgb(150, 182, 197);
+.text-disable{
+    width: 0;
     height: 0;
     overflow: hidden;
-    width: auto;
+    font-family: Arial, sans-serif;
+    user-select: none;
+    font-size: larger;
+    color: rgb(250, 100, 100);
+    background-color: rgb(219, 219, 219);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+.radio_card_container label input[type=checkbox]:enabled~.text-disable{
+    width: 100%;
+    height: 0;
+    /* opacity: 0.1; */
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    transition: 0.5s;
+}
+.radio_card_container label input[type=checkbox]:disabled~.text-disable{
+    width: 100%;
+    height: 100%;
+    color: rgb(250, 100, 100);
+    background-color: rgb(219, 219, 219);
     transition: 0.5s;
 }
 #double-option{
     width: 0;
     height: 0;
 }
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: larger;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    color: rgb(25, 74, 97);;
+}
 @media only screen and (min-width: 1000px){
     #double-option{
         width: 100%;
         height: 6vh;
     }
+    h1{
+        font-size: x-large;
+    }
 }
-@media only screen and (max-height: 500px){
+@media only screen and (max-height: 440px){
+    .radio_card_container .text{
+        font-size: smaller;
+    }
+}
+@media only screen and (max-height: 600px){
     .radio_card_container .text{
         font-size: medium;
     }
