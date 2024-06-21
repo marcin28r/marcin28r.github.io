@@ -20,7 +20,7 @@
         <div class="container_row" >
             <div class="radio_card_container">
               <label>
-                    <input type="radio" name="height" value="2" class="map_on">
+                    <input type="radio" name="height" value="2" class="map_on" checked>
                     <div class="text" >2</div>  
               </label>
             </div>
@@ -154,6 +154,14 @@
 
     function enableMap(){
       document.getElementById("map").disabled = false;
+    };
+
+    window.onload = function() {
+      var defaultRadio = document.querySelector('input[type="radio"][name="height"][value="3"]');
+      
+      if (defaultRadio) {
+        defaultRadio.checked = true;
+      }
     };
     
     
