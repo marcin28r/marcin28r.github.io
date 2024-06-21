@@ -173,6 +173,21 @@ h1 {
     margin: 0;
     color: rgb(25, 74, 97);;
 }
+#back-button{
+    font-size: large;
+    position: fixed;
+    width: 16%;
+    height: 8%;
+    top: 0;
+    left: 0;
+    grid-row: 1/1;
+    grid-column: 1/1;
+    border: none;
+    border-radius: 0 0 10px 0;
+    border-top: 0;
+    border-left: 0;
+    background-color: rgb(150, 182, 197);
+}
 @media only screen and (min-height: 600px) and (min-width: 500px){
     .text-disable{
         font-size: larger;
@@ -186,6 +201,11 @@ h1 {
     h1{
         font-size: x-large;
     }
+    #back-button{
+        margin-left: calc(50vw - 500px);
+        width: 160px;
+        border-radius: 0 0 10px 10px;
+    }
 }
 @media only screen and (max-height: 440px){
     .radio_card_container .text{
@@ -195,5 +215,8 @@ h1 {
 @media only screen and (max-height: 600px){
     .radio_card_container .text{
         font-size: medium;
+    }
+    #back-button{
+        height: 12%;
     }
 }

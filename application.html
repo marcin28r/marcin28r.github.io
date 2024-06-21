@@ -13,6 +13,7 @@
   <title>Wieża Hanoi</title>
 </head>
 <body>
+  <button id=back-button onclick="backButtonClick()">Back</button>
   <div id="configurator_container">
     <form id="configurator_form">
 
@@ -208,6 +209,14 @@
       document.body.removeChild(document.getElementById("configurator_container"));
     });
 
+
+    function backButtonClick(){
+      if(document.body.contains(document.getElementById("configurator_container"))){
+        window.location.href = 'index.html';
+      }else{
+        window.location.href = 'application.html';
+      }
+    }
   </script>
 </body>
 </html>

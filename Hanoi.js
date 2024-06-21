@@ -197,7 +197,7 @@ class Hanoi {
                this.divGui.appendChild(this.map_center_button);
 
                this.expand_map_button = document.createElement('button');
-               this.expand_map_button.textContent = 'map';
+               this.expand_map_button.textContent = 'Map';
                this.expand_map_button.classList.add('expand-map');
                this.expand_map_button.addEventListener('click', function(){
                    if(hanoi.divMapContainer.classList.contains("expanded")){

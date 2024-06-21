@@ -204,7 +204,6 @@ a{
   }
   .expand-map{
     font-size: x-large;
-    display: grid;
     grid-row: 1/1;
     grid-column: 11/13;
     border: 2px solid rgb(37, 36, 37);
