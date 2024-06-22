@@ -18,10 +18,12 @@ const language_content = {
       "putout": "indicating the correct insertion",
       "auto": "automatic solving",
       "map": "moves map",
-      "mo-map-info": "maps for 7 and 8 rings are disabled",
+      "nomap": "maps for 7 and 8 rings are disabled",
       "ring-h1" : "Rings",
-      "options-h1" : "Facilities",
-
+      "options-h1": "Facilities",
+      "back-text": "Back",
+      "new-text": "New Hanoi",
+      "renew-text": "Again",
 
     },
     "pl": {
@@ -43,9 +45,12 @@ const language_content = {
       "putout": "wskazywanie poprawnego odkładania",
       "auto": "automatyczne układanie",
       "map": "mapa ruchów",
-      "mo-map-info": "mapa ruchów 7 i 8 krążków jest wyłączona",
+      "nomap": "mapa ruchów 7 i 8 krążków jest wyłączona",
       "ring-h1" : "Pierścienie",
       "options-h1" : "Ułatwienia",
+      "back-text": "Powrót",
+      "new-text": "Nowa wieża",
+      "renew-text": "Jeszcze raz",
     }
 }
 

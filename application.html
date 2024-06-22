@@ -14,7 +14,7 @@
   <title>Wieża Hanoi</title>
 </head>
 <body>
-  <button id=back-button onclick="backButtonClick()" content-data="back-button-text">_-_-_</button>
+  <button id=back-button onclick="backButtonClick()" content-data="back-button-text">back</button>
   <div id="configurator_container">
     <form id="configurator_form">
 
@@ -70,49 +70,49 @@
             <div class="radio_card_container">
               <label>
                     <input type="radio" name="patern" value="wood" checked="checked">
-                    <div class="text" id="wood" content-data="wood"> drewno </div>  
+                    <div class="text" id="wood" content-data="wood">wood</div>  
               </label>
             </div>
             <div class="radio_card_container">
               <label>
                     <input type="radio" name="patern" value="color">
-                    <div class="text" id="color" content-data="color"> kolor </div>  
+                    <div class="text" id="color" content-data="color">color</div>  
               </label>
             </div>
             <div class="radio_card_container">
               <label>
                     <input type="radio" name="patern" value="contrast">
-                    <div class="text " id="patern" content-data="patern">wzór</div>  
+                    <div class="text " id="patern" content-data="patern">patern</div>  
               </label>
           </div>
         </div>
 
-        <h1 content-data="options-h1">Ułatwienia</h1>
+        <h1 content-data="options-h1">Options</h1>
 
         <div class="container_column">
           <div class="radio_card_container">
             <label>
               <input type="checkbox" id="help_move">
-              <div class="text" content-data="hint">pojedyncza podpowiedź</div>
+              <div class="text" content-data="hint">hint</div>
             </label>
           </div>
           <div class="radio_card_container">
             <label>
                   <input type="checkbox" id="can_be_added">
-                  <div class="text" content-data="putout">odkładanie</div>
+                  <div class="text" content-data="putout">putout</div>
             </label>
           </div>
           <div class="radio_card_container">
               <label>
                   <input type="checkbox" id="auto_move">
-                  <div class="text" content-data="auto">automatyczne układanie</div>
+                  <div class="text" content-data="auto">auto</div>
                 </label>
           </div>
           <div class="radio_card_container">
                 <label>
                   <input type="checkbox" id="map" >
                   <div class="text" content-data="map" >mapa</div>
-                  <div class="text-disable" content-data="no-map-info">mapa off</div>
+                  <div class="text-disable" content-data="nomap">mapa off</div>
                 </label>
           </div>
           <div class="radio_card_container" id="double-option">

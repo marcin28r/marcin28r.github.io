@@ -139,14 +139,14 @@ class Hanoi {
         this.divComplete.appendChild(this.renew_button);
         
         this.new_hanoi_button = document.createElement('button');
-        this.new_hanoi_button.textContent = 'NewGame';
+        this.new_hanoi_button.setAttribute("content-data", "new-text");
         this.new_hanoi_button.addEventListener('click', function(){
             window.location.href = 'application.html';
            });
         this.divComplete.appendChild(this.new_hanoi_button);
          
         this.back_button = document.createElement('button');
-        this.back_button.setAttribute("content-data", "back-button-text");
+        this.back_button.setAttribute("content-data", "back-text");
         this.back_button.addEventListener('click', function(){
             window.location.href = 'index.html';
            });
