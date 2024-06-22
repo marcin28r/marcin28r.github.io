@@ -238,7 +238,7 @@ class Hanoi {
         
 
     fill(){
-        translateTo(null);
+        // translateTo(null);
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
         

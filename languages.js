@@ -72,3 +72,6 @@ function translateTo(language) {
     }
   });
 }
+document.addEventListener('DOMContentLoaded', () => {
+  translateTo(); 
+});
