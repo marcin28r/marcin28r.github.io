@@ -1,32 +1,49 @@
 const language_content = {
     "en": {
-      "nav-1": "Rules",
-      "nav-2": "History",
+      "nav-1": "History",
+      "nav-2": "Rules",
       "nav-3": "Algorithms",
       "nav-4": "App",
       "nav-5": "Solv",
-      "hanoi": "Towers of Hanoi"
+      "hanoi": "Towers of Hanoi",
+      "back-button-text": "Back",
     },
     "pl": {
-      "nav-1": "Zasady",
-      "nav-2": "Historia",
+      "nav-1": "Historia",
+      "nav-2": "Zasady",
       "nav-3": "Algorytmy",
       "nav-4": "Aplikacja",
       "nav-5": "Układaj",
-      "hanoi": "Wieże Hanoi"
+      "hanoi": "Wieże Hanoi",
+      "back-button-text": "Powrót",
     }
-  }
+}
+
+const LANGUAGE_STORAGE_KEY = 'actual_lang';
+
+function translateTo(language) {
+  let selectedLanguage = language;
   
-  function translateTo(language) {
-    const elements = document.querySelectorAll('[content]');
-    
-    elements.forEach(element => {
-      const key = element.getAttribute('content');
-      if (language_content[language] && language_content[language][key]) {
-        element.textContent = language_content[language][key];
-      }
-    });
+  if(selectedLanguage === null){
+    selectedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
+    console.log("wczytuję z localstorage " + selectedLanguage);
   }
-  
-  // Początkowe ustawienie na język angielski
-  translateTo('pl');
+  if (selectedLanguage === null) {
+    console.log("ustawiam na basic pl");
+      selectedLanguage = 'pl';
+  }
+
+
+  console.log("ustawiam local na " + selectedLanguage);
+  console.log(selectedLanguage);
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
+
+  const elements = document.querySelectorAll('[content-data]');
+  console.log(selectedLanguage);
+  elements.forEach(element => {
+    const key = element.getAttribute('content-data');
+    if (language_content[selectedLanguage] && language_content[selectedLanguage][key]) {
+      element.textContent = language_content[selectedLanguage][key];
+    }
+  });
+}

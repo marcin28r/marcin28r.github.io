@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,13 @@
   <script src="Buffer.js"></script> 
   <script src="Node.js"></script> 
   <script src="Hanoi.js"></script> 
+  <script src="languages.js" defer></script>
   <link rel="stylesheet" href="style_hanoi.css">
   <link rel="stylesheet" href="style_configurator.css">
   <title>Wieża Hanoi</title>
 </head>
 <body>
-  <button id=back-button onclick="backButtonClick()">Back</button>
+  <button id=back-button onclick="backButtonClick()" content-data="back-button-text">_-_-_</button>
   <div id="configurator_container">
     <form id="configurator_form">
 
@@ -140,35 +141,33 @@
 
  
   <script>
-         var no_map_element = document.querySelectorAll('.map_off');
+    var no_map_element = document.querySelectorAll('.map_off');
     no_map_element.forEach(function(element) {
-      element.addEventListener('click', disableMap)});
-      
-      function disableMap(){
-        document.getElementById("map").checked = false;
-        document.getElementById("map").disabled = true;
+    element.addEventListener('click', disableMap)});
+    
+    function disableMap(){
+      document.getElementById("map").checked = false;
+      document.getElementById("map").disabled = true;
     };
-
+    
     var map_element = document.querySelectorAll('.map_on');
     map_element.forEach(function(element) {
       element.addEventListener('click', enableMap)});
-
-    function enableMap(){
-      document.getElementById("map").disabled = false;
-    };
-
-    window.onload = function() {
-      var defaultRadio = document.querySelector('input[type="radio"][name="height"][value="3"]');
       
-      if (defaultRadio) {
-        defaultRadio.checked = true;
-      }
-    };
-    
-    
-    document.getElementById('startButton').addEventListener('click', function() {
-      const form = document.getElementById('configurator_form');
+      function enableMap(){
+        document.getElementById("map").disabled = false;
+      };
       
+      window.onload = function() {
+        var defaultRadio = document.querySelector('input[type="radio"][name="height"][value="3"]');  
+        if (defaultRadio) {
+          defaultRadio.checked = true;
+        }
+      };
+    
+      document.getElementById('startButton').addEventListener('click', function() {
+        const form = document.getElementById('configurator_form');
+        
       var height = form.elements['height'].value;
       var pattern = form.elements['patern'].value;
       var help_move = document.getElementById('help_move').checked ? true : false;
@@ -185,17 +184,17 @@
         document.getElementById('mainContainer').appendChild(b);
         b.classList.add("one-of-double");
         document.getElementById('mainContainer').classList.add("double");
-
-
+        
+        
         const ha = document.createElement('div');
         a.appendChild(ha);
         const hb = document.createElement('div');
         b.appendChild(hb);
-
+        
         const h1 = new Hanoi(ha);
         h1.build(pattern, help_move, can_be_added, auto_move, map, height);
         h1.fill();
-
+        
         const h2 = new Hanoi(hb);
         h2.build(pattern, help_move, can_be_added, auto_move, map, height);
         h2.fill();
@@ -204,12 +203,12 @@
         h1.build(pattern, help_move, can_be_added, auto_move, map, height);
         h1.fill();
       }
-
-
+      
+      
       document.body.removeChild(document.getElementById("configurator_container"));
     });
-
-
+    
+    
     function backButtonClick(){
       if(document.body.contains(document.getElementById("configurator_container"))){
         window.location.href = 'index.html';
@@ -217,6 +216,9 @@
         window.location.href = 'application.html';
       }
     }
+    document.addEventListener('DOMContentLoaded', () => {
+      translateTo(null);
+    });
   </script>
 </body>
 </html>
