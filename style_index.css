@@ -18,6 +18,10 @@ nav{
     justify-content: space-around;
     z-index: 3;
 }
+nav a:focus,nav a:active{
+    outline: none;
+    box-shadow: none;
+}
 nav a{
     text-align: center;
     font-size: smaller;
