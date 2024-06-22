@@ -122,7 +122,7 @@ class Hanoi {
         this.divComplete.appendChild(this.complete_clock);
         
         this.renew_button = document.createElement('button');
-        this.renew_button.textContent = 'Renew';
+        this.renew_button.setAttribute("content-data", "renew-text");
         this.renew_button.addEventListener('click', function(){
             hanoi.parent.removeChild(hanoi.divComplete);
             hanoi.divComplete.classList.remove("active");
@@ -451,6 +451,7 @@ class Hanoi {
         this.complete_moves.textContent = this.moves.textContent;
         this.parent.appendChild(this.divComplete);
         this.divComplete.classList.add("active");
+        translateTo(null);
     }
 
     translate(value){
