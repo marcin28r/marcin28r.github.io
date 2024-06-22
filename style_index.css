@@ -23,6 +23,7 @@ nav a{
     font-size: smaller;
     background-color: rgb(150, 182, 197);
     display: flex;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -112,6 +113,7 @@ main div button{
     width: 32px;
     height: 20px;
     border: none;
+    cursor: pointer;
 }
 #pl-button{
     background-image: url("content/polish.png");

@@ -64,6 +64,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 }
 #patern:hover{
     font-weight: bold;
@@ -174,6 +175,7 @@ h1 {
     color: rgb(25, 74, 97);;
 }
 #back-button{
+    cursor: pointer;
     font-family: Arial, sans-serif;
     font-size: large;
     position: fixed;

@@ -52,7 +52,8 @@ body{
     justify-content: center; 
     align-items: center;
   }
-  .stackDiv {      
+  .stackDiv {     
+    cursor: pointer; 
     width: calc(100% / 3);
     /* border-top: 8px solid rgb(241, 240, 232); */
     border-radius: 20px 20px 0 0 ;
@@ -85,6 +86,7 @@ body{
     padding-top: 10px;
   }
   .gui_buttons button{
+    cursor: pointer;
     flex-grow: 1;
     flex-shrink: 1;
     font-size: large;
@@ -114,7 +116,6 @@ a{
   .ring {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px; 
-    cursor: pointer; 
     z-index: 2;
     height: 6%;
     order: 2;
@@ -197,6 +198,7 @@ a{
     padding: 3px;
   }
   .expand-map{
+    cursor: pointer;
     font-size: large;
     grid-row: 1/1;
     grid-column: 11/13;
@@ -236,6 +238,7 @@ a{
   border-radius: 10px;
   width: 200px;
   max-height: 60px;
+  cursor: pointer;
 }
 .complete.active button:hover{
   border: 2px solid rgb(81, 130, 155);
