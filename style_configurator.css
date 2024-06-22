@@ -110,6 +110,11 @@
     border-radius: 10px;
     font-size: larger;
     cursor: pointer;
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 #startButton:hover{
     background-color: rgb(122, 221, 136);
