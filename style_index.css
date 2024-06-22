@@ -23,6 +23,7 @@ nav a:focus,nav a:active{
     box-shadow: none;
 }
 nav a{
+    -webkit-tap-highlight-color: transparent;
     text-align: center;
     font-size: smaller;
     background-color: rgb(150, 182, 197);
