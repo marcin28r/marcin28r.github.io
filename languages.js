@@ -15,7 +15,7 @@ const language_content = {
       "color": "color",
       "patern": "patern",
       "hint": "single hint",
-      "putout": "corect putout help",
+      "putout": "indicating the correct insertion",
       "auto": "automatic solving",
       "map": "moves map",
       "mo-map-info": "maps for 7 and 8 rings are disabled",
