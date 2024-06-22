@@ -86,7 +86,7 @@ class Hanoi {
         this.parent.appendChild(this.divInfo);
         
         this.map_center_button = document.createElement('button');
-        this.map_center_button.textContent = "Center";
+        this.map_center_button.setAttribute('content-data', 'mapcenter-button-text');
         
         
         
@@ -146,7 +146,7 @@ class Hanoi {
         this.divComplete.appendChild(this.new_hanoi_button);
          
         this.back_button = document.createElement('button');
-        this.back_button.textContent = 'Back';
+        this.back_button.setAttribute("content-data", "back-button-text");
         this.back_button.addEventListener('click', function(){
             window.location.href = 'index.html';
            });
@@ -155,7 +155,7 @@ class Hanoi {
         //auto
         if(this.help_autoMove){
             this.auto_button = document.createElement('button');
-            this.auto_button.textContent = 'Auto';
+            this.auto_button..setAttribute('content-data', 'auto-button-text');
             
             this.auto_button.addEventListener('click', function(){
                if(hanoi.auto_move_active == true){
@@ -173,7 +173,7 @@ class Hanoi {
         //hint
         if(this.help_move){
             this.hint_button = document.createElement('button');
-            this.hint_button.textContent = 'Hint';
+            this.hint_button.setAttribute('content-data', 'hint-button-text');
             this.hint_button.addEventListener('click', function(){
                 hanoi.helpMoveVisualization();
                });
@@ -198,7 +198,7 @@ class Hanoi {
                this.divGui.appendChild(this.map_center_button);
 
                this.expand_map_button = document.createElement('button');
-               this.expand_map_button.textContent = 'Map';
+               this.expand_map_button.setAttribute('content-data', 'map-button-text');
                this.expand_map_button.classList.add('expand-map');
                this.expand_map_button.addEventListener('click', function(){
                    if(hanoi.divMapContainer.classList.contains("expanded")){

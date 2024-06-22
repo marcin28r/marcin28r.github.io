@@ -7,6 +7,10 @@ const language_content = {
       "nav-5": "Solv",
       "hanoi": "Towers of Hanoi",
       "back-button-text": "Back",
+      "map-button-text": "Map",
+      "auto-button-text": "Auto",
+      "hin-button-text": "Hint",
+      "mapcenter-button-text": "Center Map",
     },
     "pl": {
       "nav-1": "Historia",
@@ -16,6 +20,10 @@ const language_content = {
       "nav-5": "Układaj",
       "hanoi": "Wieże Hanoi",
       "back-button-text": "Powrót",
+      "map-button-text": "Mapa",
+      "auto-button-text": "Auto PL",
+      "hin-button-text": "Wskazówka",
+      "mapcenter-button-text": "Centeruj Mapę",
     }
 }
 
