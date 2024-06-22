@@ -17,8 +17,8 @@
   </nav>
   <main>
     <div>
-      <button id="pl-button"></button>
-      <button id="en-button"></button>
+      <button id="pl-button" onclick="translateTo('pl')"></button>
+      <button id="en-button" onclick="translateTo('en')"></button>
     </div>
     <header class="test">
       <h1 content-data="hanoi" ></h1>
@@ -89,13 +89,6 @@
                 
 </body>
 <script>
-  document.getElementById('pl-button').addEventListener('click', function() {
-    translateTo('pl');
-  });
-
-  document.getElementById('en-button').addEventListener('click', function() {
-    translateTo('en');
-  });
   
   function scrollToElement(event, id) {
     event.preventDefault(); 

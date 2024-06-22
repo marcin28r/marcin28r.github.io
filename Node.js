@@ -314,32 +314,26 @@ class Node {
 
 function drawLine(container, divStart, divEnd, join, height) {
     if(container !== null){
-        // Utwórz linię jako nowy element div
         const line = document.createElement('div');
         line.classList.add("line");
         line.style.background = `rgb(${join/height * 100 + 150}, ${255 - join/height * 200}, ${join/height * 255})`;
-        // ring.style.paddingBottom = "5px";
         container.appendChild(line);
 
-        // Pobierz pozycje elementów
         const rect1 = divStart.getBoundingClientRect();
         const rect2 = divEnd.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
 
-        // Oblicz środek każdego elementu, uwzględniając pozycję kontenera
         const x1 = rect1.left + rect1.width / 2 - containerRect.left;
         const y1 = rect1.top + rect1.height / 2 - containerRect.top;
         const x2 = rect2.left + rect2.width / 2 - containerRect.left;
         const y2 = rect2.top + rect2.height / 2 - containerRect.top;
 
-        // Oblicz odległość i kąt, uwzględniając przesunięcie
         const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
         const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
 
-        // Ustaw pozycję i wymiary linii
         line.style.width = `${distance}px`;
         line.style.transform = `rotate(${angle}deg)`;
-        line.style.transformOrigin = '0 0'; // Ustawienie punktu obrotu
+        line.style.transformOrigin = '0 0';
         line.style.top = `${y1}px`;
         line.style.left = `${x1}px`;
     }
