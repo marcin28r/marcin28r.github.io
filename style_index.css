@@ -40,13 +40,18 @@ nav a{
     text-decoration-color: rgb(241, 240, 232);
     text-overflow: ellipsis;
     max-width: 20%; 
-    user-select: none; /* Standardowy sposób */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
     -ms-user-select: none;
 }
 nav a:hover{
     text-decoration-thickness: 6px; 
+    transition: 0.5s;
+    /* font-weight: bold; */
+}
+nav a:hover::after{
+    text-decoration-thickness: 2px; 
     transition: 0.5s;
     /* font-weight: bold; */
 }

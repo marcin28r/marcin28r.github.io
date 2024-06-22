@@ -33,6 +33,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
 }
 .radio_card_container:hover{
     border: 2px solid rgb(81, 130, 155);
@@ -193,6 +194,11 @@ h1 {
     color: white;
     background-color: rgb(150, 182, 197);
     z-index: 8;
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-height: 600px) and (min-width: 500px){
     .text-disable{
