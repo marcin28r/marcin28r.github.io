@@ -44,15 +44,11 @@ nav a{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    transition: 0.1s;
 }
 nav a:hover{
     text-decoration-thickness: 4px; 
     transition: 0.1s;
-    /* font-weight: bold; */
-}
-nav a:hover::after{
-    text-decoration-thickness: 2px; 
-    transition: 0.5s;
     /* font-weight: bold; */
 }
 footer{
