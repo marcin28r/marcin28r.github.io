@@ -19,6 +19,9 @@ const language_content = {
       "auto": "automatic solving",
       "map": "moves map",
       "mo-map-info": "maps for 7 and 8 rings are disabled",
+      "ring-text" : "Rings",
+      "options" : "Facilities"
+
 
     },
     "pl": {
@@ -41,6 +44,8 @@ const language_content = {
       "auto": "automatyczne układanie",
       "map": "mapa ruchów",
       "mo-map-info": "mapa ruchów 7 i 8 krążków jest wyłączona",
+      "ring-text" : "Pierścienie",
+      "options" : "Ułatwienia"
     }
 }
 
