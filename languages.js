@@ -73,10 +73,10 @@ function translateTo(language) {
   console.log(selectedLanguage);
   localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
 
-  const elements = document.querySelectorAll('[content-data]');
+  const elements = document.querySelectorAll('[content]');
   console.log(selectedLanguage);
   elements.forEach(element => {
-    const key = element.getAttribute('content-data');
+    const key = element.getAttribute('content');
     if (language_content[selectedLanguage] && language_content[selectedLanguage][key]) {
       element.textContent = language_content[selectedLanguage][key];
     }
