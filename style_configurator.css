@@ -133,7 +133,7 @@
     transition: 0.5s;
 }
 .text-disable{
-    width: 0;
+    width: 1;
     height: 0;
     overflow: hidden;
     font-family: Arial, sans-serif;
