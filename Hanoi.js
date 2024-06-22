@@ -275,7 +275,6 @@ class Hanoi {
             this.actual_node.parentDiv.firstChild.style.background = `rgb(${255}, ${215}, ${10})`;
             this.map_center_button.click();
         }
-        translateTo(null);
         this.start();
         };
 
