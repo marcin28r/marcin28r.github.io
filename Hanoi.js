@@ -155,7 +155,7 @@ class Hanoi {
         //auto
         if(this.help_autoMove){
             this.auto_button = document.createElement('button');
-            this.auto_button..setAttribute('content-data', 'auto-button-text');
+            this.auto_button.setAttribute('content-data', 'auto-button-text');
             
             this.auto_button.addEventListener('click', function(){
                if(hanoi.auto_move_active == true){
@@ -238,6 +238,7 @@ class Hanoi {
         
 
     fill(){
+        this.translateTo(null);
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
         
