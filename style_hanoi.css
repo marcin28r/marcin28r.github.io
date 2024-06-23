@@ -109,6 +109,14 @@ body{
     justify-content: space-around;
     color: rgb(6, 60, 85);
   }
+  .gui_info.solv{
+    background-color:  rgb(183, 230, 183);
+    transition: 1s;
+  }
+  .gui_info a{
+    font-size: xx-large;
+    font-weight: bolder;
+  }
 a{
     flex-grow: 1;
     flex-shrink: 1;

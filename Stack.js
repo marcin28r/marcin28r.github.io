@@ -1,4 +1,4 @@
-class RingStack {
+class Stack {
     constructor(parent) {
         this.stack = [];
         this.parent = parent;

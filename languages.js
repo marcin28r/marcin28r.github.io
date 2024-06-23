@@ -61,20 +61,15 @@ function translateTo(language) {
   
   if(selectedLanguage === null){
     selectedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY)
-    console.log("wczytuję z localstorage " + selectedLanguage);
   }
   if (selectedLanguage === null) {
-    console.log("ustawiam na basic pl");
       selectedLanguage = 'pl';
   }
 
 
-  console.log("ustawiam local na " + selectedLanguage);
-  console.log(selectedLanguage);
   localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
 
   const elements = document.querySelectorAll('[content]');
-  console.log(selectedLanguage);
   elements.forEach(element => {
     const key = element.getAttribute('content');
     if (language_content[selectedLanguage] && language_content[selectedLanguage][key]) {

@@ -25,23 +25,23 @@ class Hanoi {
         }
         
         // dodajemy Bufor wraz z buforami dla każdego stosu
-        this.divBuffor = document.createElement('div');
-        this.divBuffor.classList.add("buffers-container");
-        this.parent.appendChild(this.divBuffor);
+        this.mainBufferDiv = document.createElement('div');
+        this.mainBufferDiv.classList.add("buffers-container");
+        this.parent.appendChild(this.mainBufferDiv);
         
-        this.divBufforA = document.createElement('div');
-        this.divBufforA.classList.add('buffer');
-        this.divBuffor.appendChild(this.divBufforA);
+        this.buffersDict = {
+            "a" : document.createElement('div'),
+            "b" : document.createElement('div'),
+            "c" : document.createElement('div'),
+        }
         
-        this.divBufforB = document.createElement('div');
-        this.divBufforB.classList.add('buffer');
-        this.divBuffor.appendChild(this.divBufforB);
+        for(let key in this.buffersDict){
+            let element = this.buffersDict[key];
+            element.classList.add('buffer');
+            this.mainBufferDiv.appendChild(element);
+        }
         
-        this.divBufforC = document.createElement('div');
-        this.divBufforC.classList.add('buffer');
-        this.divBuffor.appendChild(this.divBufforC);
-        
-        this.buffer = new Buffer();
+        this.mainBuffer = new Buffer();
         
         // dodajemy stosy
         this.divParentStack = document.createElement('div');
@@ -49,36 +49,32 @@ class Hanoi {
         this.parent.appendChild(this.divParentStack);
         
         
-        this.divA = document.createElement('div');
-        this.divA.classList.add('stackDiv');
-        this.divParentStack.appendChild(this.divA);
-
-        this.s = document.createElement('div');
-        this.s.classList.add('stick');
-        this.divA.appendChild(this.s);
-        
-        this.divB = document.createElement('div');
-        this.divB.classList.add('stackDiv');
-        this.divParentStack.appendChild(this.divB);
-        
-        this.divC = document.createElement('div');
-        this.divC.classList.add('stackDiv');
-        this.divParentStack.appendChild(this.divC);
+        this.StackDivsDict = {
+            "a": document.createElement('div'),
+            "b": document.createElement('div'),
+            "c": document.createElement('div'),
+        }
+        for(let key in this.StackDivsDict){
+            var element = this.StackDivsDict[key];
+            element.classList.add('stackDiv');
+            this.divParentStack.appendChild(element);
+        }
 
         var baseA = document.createElement('div');
         baseA.classList.add("base");
-        this.divA.appendChild(baseA);
+        this.StackDivsDict['a'].appendChild(baseA);
         var baseB = document.createElement('div');
         baseB.classList.add("base");
-        this.divB.appendChild(baseB);
+        this.StackDivsDict['b'].appendChild(baseB);
         var baseC = document.createElement('div');
         baseC.classList.add("base");
-        this.divC.appendChild(baseC);
-        
-        this.A = new RingStack(this.divA);
-        this.B = new RingStack(this.divB);
-        this.C = new RingStack(this.divC);
-        
+        this.StackDivsDict['c'].appendChild(baseC);
+
+        this.StacksDict = {
+            "a" : new Stack(this.StackDivsDict['a']),
+            "b" : new Stack(this.StackDivsDict['b']),
+            "c" : new Stack(this.StackDivsDict['c']),
+        }
         
         //gui licznik ruchów, czasu
         this.divInfo = document.createElement('div');
@@ -213,25 +209,25 @@ class Hanoi {
            }
 
            if(! this.help_map){
-               this.divBuffor.classList.add("without-map");
+               this.mainBufferDiv.classList.add("without-map");
                this.divParentStack.classList.add("without-map");
                this.divInfo.classList.add("without-map");
                this.divGui.classList.add("without-map");
            }
 
-           this.divA.addEventListener('click', function(){
+           this.StackDivsDict['a'].addEventListener('click', function(){
                if(!hanoi.auto_move_active){
-                   hanoi.stackClick(hanoi.A, hanoi.divBufforA);
+                   hanoi.stackClick(hanoi.StacksDict['a'], hanoi.buffersDict['a']);
                }
                });
-           this.divB.addEventListener('click', function(){
+           this.StackDivsDict['b'].addEventListener('click', function(){
                if(!hanoi.auto_move_active){
-                   hanoi.stackClick(hanoi.B, hanoi.divBufforB);
+                   hanoi.stackClick(hanoi.StacksDict['b'], hanoi.buffersDict['b']);
                }
                });
-           this.divC.addEventListener('click', function(){
+           this.StackDivsDict['c'].addEventListener('click', function(){
                if(!hanoi.auto_move_active){
-                   hanoi.stackClick(hanoi.C, hanoi.divBufforC);
+                   hanoi.stackClick(hanoi.StacksDict['c'], hanoi.buffersDict['c']);
                }
                 });
         }
@@ -239,20 +235,22 @@ class Hanoi {
 
     fill(){
         translateTo(null);
+        this.divInfo.classList.remove("solv");
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
         if(this.stackHeight>8){this.stackHeight = 8};
         
-        this.A.clear();
-        this.B.clear();
-        this.C.clear();
-        this.buffer.clear();
-
+        this.StacksDict['a'].clear();
+        this.StacksDict['b'].clear();
+        this.StacksDict['c'].clear();
+        this.mainBuffer.clear();
+        
         for (let i = this.stackHeight; i > 0; i--) { 
-            this.A.addRing(new Ring(i, this.divA, this.stackHeight), this.pattern);
+            this.StacksDict['a'].addRing(new Ring(i, this.StackDivsDict['a'], this.stackHeight), this.pattern);
         }
         
         if(this.start_node){
+
             this.actual_node = this.start_node;
         }else if(this.help_move || this.help_map || this.help_autoMove ){
             var nodes = new Node(this.divMap, this.stackHeight, this.divMap);
@@ -280,70 +278,67 @@ class Hanoi {
         };
 
     stackClick(stack, buffor){
-            if(this.buffer.hasRing()){
-                const bufferedRing = this.buffer.getRing();
+        if(this.mainBuffer.hasRing()){
+            const bufferedRing = this.mainBuffer.getRing();
                 
-                if(stack.canBeAdded(bufferedRing.number)){
-                    if((this.help_move || this.help_map|| this.help_autoMove)
-                        && this.actual_node.step(this.translate(bufferedRing.parent), this.translate(stack)) !== null
-                        && this.actual_node.step(this.translate(bufferedRing.parent), this.translate(stack)) !== this.actual_node){
-                        this.actual_node = this.actual_node.step(this.translate(bufferedRing.parent), this.translate(stack));
+            if(stack.canBeAdded(bufferedRing.number)){
+                if((this.help_move || this.help_map|| this.help_autoMove)){
+                    var temp = this.actual_node.step(this.translate(bufferedRing.parent), this.translate(stack));
+                    if(temp !== null && temp !== this.actual_node){
+                            this.actual_node = temp;
                     }
-                    if(this.help_map){
-                        this.map_center_button.click();
-                    }
-                    this.buffer.clear();
-                    this.canBeAddedVisualization(null);
-                    stack.addRing(bufferedRing, this.pattern);
-                    this.moves_count += 1;
-                    this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
-                    if(stack == this.C){
-                        if(stack.testStack()){
-                            this.stop();
-                            this.hanoi_complete();
-                        }
-                    }
+                }
+                
+                if(this.help_map){
+                    this.map_center_button.click();
+                }
+                this.moves_count += 1;
+                this.mainBuffer.clear();
+                this.canBeAddedVisualization(null);
+                stack.addRing(bufferedRing, this.pattern);
+                this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
+                if(stack == this.StacksDict['c'] && stack.testStack() && !this.solved){
+                    this.stop();
+                    this.hanoi_complete();
+                    var temp = this.moves.textContent;
+                    this.complete_moves.textContent = temp;
+                    this.solved = true;
+                }
                     
-                }else{
-                    stack.parent.classList.add("wrong");
-                }
+            }else{
+                stack.parent.classList.add("wrong");
+            }
 
+            if(!this.auto_move_active && this.help_autoMove){
+                this.auto_button.disabled = false;
+            }
+        } else {
+            if(stack.getLength() > 0){
+                const topRing = stack.getTopRing();
+                this.canBeAddedVisualization(topRing);
+                this.mainBuffer.setRing(topRing);
+                stack.removeRing();
+                this.mainBuffer.displayNumber(buffor, this.pattern);
                 if(!this.auto_move_active && this.help_autoMove){
-                    this.auto_button.disabled = false;
-                }
-            } else {
-                if(stack.getLength() > 0){
-                    const topRing = stack.getTopRing();
-                    this.canBeAddedVisualization(topRing);
-                    this.buffer.setRing(topRing);
-                    stack.removeRing();
-                    this.buffer.displayNumber(buffor, this.pattern);
-                    if(!this.auto_move_active && this.help_autoMove){
-                        this.auto_button.disabled = true;
-                    }
+                    this.auto_button.disabled = true;
                 }
             }
+        }
     }
 
     canBeAddedVisualization(ring){
-            if(ring && this.help_canBeAdded){
-                if(this.A.canBeAdded(ring.number)){
-                    this.divA.classList.add("canBeAdded");
+        if(ring && this.help_canBeAdded){
+            for(let key in this.StacksDict){
+                if(this.StacksDict[key].canBeAdded(ring.number)){
+                    this.StackDivsDict[key].classList.add("canBeAdded");
                 }
-                if(this.B.canBeAdded(ring.number)){
-                    this.divB.classList.add("canBeAdded");
-                }
-                if(this.C.canBeAdded(ring.number)){
-                    this.divC.classList.add("canBeAdded");
-                }
-            }else{
-                this.divA.classList.remove("canBeAdded");
-                this.divB.classList.remove("canBeAdded");
-                this.divC.classList.remove("canBeAdded");
-                this.divA.classList.remove("wrong");
-                this.divB.classList.remove("wrong");
-                this.divC.classList.remove("wrong");
             }
+        }else{
+            for(let key in this.StacksDict){
+                this.StackDivsDict[key].classList.remove("canBeAdded");
+                this.StackDivsDict[key].classList.remove("wrong");
+            }
+        }
     }
 
     helpMoveVisualization(){
@@ -352,39 +347,19 @@ class Hanoi {
             var to = this.actual_node.help_to();
             this.hint_button.disabled = true;
             if(from !== null && to !== null){
-                if(from == "a"){
-                    var fromDiv = this.divA;
-                }
-                if(from == "b"){
-                    var fromDiv = this.divB;
-                }
-                if(from == "c"){
-                    var fromDiv = this.divC;
-                }
-
-                if(to == "a"){
-                    var toDiv = this.divA;
-                }
-                if(to == "b"){
-                    var toDiv = this.divB;
-                }
-                if(to == "c"){
-                    var toDiv = this.divC;
-                }
-                
+                var fromDiv = this.StackDivsDict[from];
+                var toDiv = this.StackDivsDict[to];
                 
                 const hanoi = this;
-                console.log(from + " " + to)
                 fromDiv.classList.add("hint");
                 setTimeout(function() {
                     fromDiv.classList.remove("hint");
                     toDiv.classList.add("hint");
-                setTimeout(function() {
-                    toDiv.classList.remove("hint");
-                    hanoi.hint_button.disabled = false;
-                }, 500); // 2000 milliseconds = 2 seconds
-            }, 500); // 2000 milliseconds = 2 seconds
-
+                    setTimeout(function() {
+                        toDiv.classList.remove("hint");
+                        hanoi.hint_button.disabled = false;
+                    }, 500); 
+                }, 500); 
             }
         }
     }
@@ -398,39 +373,18 @@ class Hanoi {
             var to = this.actual_node.help_to();
             // this.auto_button.disabled = true;
             if(from !== null && to !== null){
-                if(from == "a"){
-                    var from = this.A;
-                    var fromDivBuffor = this.divBufforA;
-                }
-                if(from == "b"){
-                    var from = this.B;
-                    var fromDivBuffor = this.divBufforB;
-                }
-                if(from == "c"){
-                    var from = this.C;
-                    var fromDivBuffor = this.divBufforC;
-                }
-    
-                if(to == "a"){
-                    var to = this.A;
-                    var toDivBuffor = this.divBufforA;
-                }
-                if(to == "b"){
-                    var to = this.B;
-                    var toDivBuffor = this.divBufforB;
-                }
-                if(to == "c"){
-                    var to = this.C;
-                    var toDivBuffor = this.divBufforC;
-                }
-    
+                let fromStack = this.StacksDict[from];
+                let fromDivBuffer = this.buffersDict[from];
+                let toStack =  this.StacksDict[to];
+                let toDivBuffer = this.buffersDict[to];
+
                 this.help_canBeAdded = false;
     
                 const hanoi = this;
-                this.stackClick(from, fromDivBuffor);
+                this.stackClick(fromStack, fromDivBuffer);
                 setTimeout(function() {
                     setTimeout(function() {
-                        hanoi.stackClick(to, toDivBuffor);
+                        hanoi.stackClick(toStack, toDivBuffer);
                         setTimeout(function() {
                             hanoi.autoMove();
                             // hanoi.auto_button.disabled = false;
@@ -449,20 +403,23 @@ class Hanoi {
 
     hanoi_complete(){
         this.complete_clock.textContent = this.clock.textContent;
-        this.complete_moves.textContent = this.moves.textContent;
-        this.parent.appendChild(this.divComplete);
-        this.divComplete.classList.add("active");
-        translateTo(null);
+        this.divInfo.classList.add("solv");
+        const hanoi = this;
+        setTimeout(function() {
+            hanoi.parent.appendChild(hanoi.divComplete);
+            hanoi.divComplete.classList.add("active");
+            translateTo(null);
+        }, 2000);
     }
 
     translate(value){
-        if(value == this.A || value == this.divA || value == this.divBufforA){
+        if(value == this.StacksDict['a'] || value == this.StackDivsDict['a'] || value == this.buffersDict['a']){
             return "a"
         }
-        if(value == this.B || value == this.divB || value == this.divBufforB){
+        if(value == this.StacksDict['b'] || value == this.StackDivsDict['b'] || value == this.buffersDict['b']){
             return "b"
         }
-        if(value == this.C || value == this.divC || value == this.divBufforC){
+        if(value == this.StacksDict['c'] || value == this.StackDivsDict['c'] || value == this.buffersDict['c']){
             return "c"
         }
     }
