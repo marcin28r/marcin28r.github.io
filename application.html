@@ -11,14 +11,13 @@
   <script src="languages.js" defer></script>
   <link rel="stylesheet" href="style_hanoi.css">
   <link rel="stylesheet" href="style_configurator.css">
-  <title>Wieża Hanoi</title>
+  <title>Wieże Hanoi</title>
 </head>
 <body>
   <button id=back-button onclick="backButtonClick()" content="back-button-text">back</button>
   <div id="configurator_container">
     <form id="configurator_form">
-
-        <h1 content="ring-h1">Pierścienie</h1>
+        <h1 content="ring-h1"></h1>
         <div class="container_row" >
             <div class="radio_card_container">
               <label>
@@ -92,7 +91,7 @@
         <div class="container_column">
           <div class="radio_card_container">
             <label>
-              <input type="checkbox" id="help_move">
+              <input type="checkbox" id="hint">
               <div class="text" content="hint">hint</div>
             </label>
           </div>
@@ -127,7 +126,7 @@
 
         <div class="container_row" >
           <div>
-            <button id="startButton">Start</button>  
+            <button id="startButton" onclick="startHanoi()">Start</button>  
           </div>
         </div>
 
@@ -161,17 +160,17 @@
           defaultRadio.checked = true;
         }
       };
-    
-      document.getElementById('startButton').addEventListener('click', function() {
+      
+      function startHanoi(){
         const form = document.getElementById('configurator_form');
         
-      var height = form.elements['height'].value;
-      var pattern = form.elements['patern'].value;
-      var help_move = document.getElementById('help_move').checked ? true : false;
-      var can_be_added = document.getElementById('can_be_added').checked ? true : false;
-      var auto_move = document.getElementById('auto_move').checked ? true : false;
-      var map = document.getElementById('map').checked ? true : false;
-      var double = document.getElementById('double').checked ? true : false;
+        var height = form.elements['height'].value;
+        var pattern = form.elements['patern'].value;
+        var hint = form.elements['hint'].checked;
+        var can_be_added = form.elements['can_be_added'].checked;
+        var auto_move = form.elements['auto_move'].checked;
+        var map = form.elements['map'].checked;
+        var double = form.elements['double'].checked;
       
       if(double){
         const a = document.createElement('div');
@@ -189,21 +188,21 @@
         b.appendChild(hb);
         
         const h1 = new Hanoi(ha);
-        h1.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h1.build(pattern, hint, can_be_added, auto_move, map, height);
         h1.fill();
         
         const h2 = new Hanoi(hb);
-        h2.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h2.build(pattern, hint, can_be_added, auto_move, map, height);
         h2.fill();
       }else{
         const h1 = new Hanoi(document.getElementById('mainContainer'));
-        h1.build(pattern, help_move, can_be_added, auto_move, map, height);
+        h1.build(pattern, hint, can_be_added, auto_move, map, height);
         h1.fill();
       }
       
       
       document.body.removeChild(document.getElementById("configurator_container"));
-    });
+    };
     
     
     function backButtonClick(){
