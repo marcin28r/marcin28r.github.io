@@ -159,7 +159,7 @@ class Node {
 }
     
 // generowanie poszczególnych Nodów od góry do dołu ** do zrobienia
-    go(){
+    fill(){
         this.move(this, this.left, this.join_left);
         this.move(this.left, this.right, this.left.join_right);
 
@@ -169,10 +169,10 @@ class Node {
             this.move(this.right, this.right.right, this.right.join_right);
             
             if( this. left.left.top == this.left){
-                this.left.left.go();
+                this.left.left.fill();
             }
             if( this.right.right.top == this.right){
-                this.right.right.go();
+                this.right.right.fill();
             }
             
         }

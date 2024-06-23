@@ -266,7 +266,7 @@ class Hanoi {
             if(this.help_map){
                 top_node.show();
             }
-            top_node.getTop(nodes).go();
+            top_node.getTop(nodes).fill();
             this.actual_node = top_node; 
             this.start_node = this.actual_node;
             

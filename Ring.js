@@ -14,7 +14,7 @@ class Ring {
         this.element = document.createElement('div');
         this.element.classList.add('ring');
         this.element.style.width = `${this.genWidth}%`;
-        this.element.style.height = `${2 + 0.3*this.number}vh`;
+        this.element.style.height = `${2 + 0.4*this.number}vh`;
         this.element.style.background = this.genColor; 
         const firstChild = this.parent.firstChild;
         this.parent.appendChild(this.element);

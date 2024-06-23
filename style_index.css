@@ -89,7 +89,6 @@ section img{
     
 }
 main{
-    margin-top: 10vh;
     gap: 10px;
     width: 100%;
     display: flex;
@@ -114,6 +113,15 @@ section div{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+main div{
+    width: 95%;
+    gap: 10px;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 main div button{
     width: 32px;
@@ -153,11 +161,11 @@ main div button{
 }
 @media screen and (min-width: 1200px) {
     nav a{
-        font-size: larger;
+        font-size: large;
     }
     section{
-        border-radius: 10px;
-        border: 3px solid rgb(155, 176, 193);
+        border-radius: 0;
+        border: none;
     }
     nav{
         gap: 20px;
@@ -169,6 +177,7 @@ main div button{
         align-items: center;
         margin-left: auto;
         margin-right: auto;
+        gap: 4px;
     }
     body{
         background-color:rgb(255, 255, 255);
