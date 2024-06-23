@@ -235,6 +235,7 @@ class Hanoi {
 
     fill(){
         translateTo(null);
+        this.solved = false;
         this.divInfo.classList.remove("solv");
         this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
         if(this.stackHeight<2){this.stackHeight = 2};
