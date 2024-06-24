@@ -132,7 +132,6 @@ class Node {
             if(from.hanoi[value] === "a"){
                 if(from.hanoi[value - 1] === "b"){
                     to.hanoi[x] = "c";
-                    // console.log(to.hanoi);
                 }else{
                     to.hanoi[value] = "b";
                 }
@@ -140,14 +139,12 @@ class Node {
             }else if(from.hanoi[value] === "b"){
                 if(from.hanoi[value - 1] === "c"){
                     to.hanoi[x] = "a";
-                    // console.log(to.hanoi);
                 }else{
                     to.hanoi[value] = "c";
                 }
             }else if(from.hanoi[value] === "c"){
                 if(from.hanoi[value - 1] === "a"){
                     to.hanoi[x] = "b";
-                    // console.log(to.hanoi);
                 }else{
                     to.hanoi[value] = "a";
                 }
@@ -179,8 +176,8 @@ class Node {
    
     }
 
-    draw(need_visualization) {
-        if(need_visualization){
+    draw(visible) {
+        if(visible){
             let mai = document.createElement("div");
 
             mai.style.display = "flex";
@@ -200,7 +197,7 @@ class Node {
             }
         }
         if( this.deep > 0){
-            if(need_visualization){
+            if(visible){
                 let firstRowDiv = document.createElement("div");
                 let secondRowDiv = document.createElement("div");
                 
@@ -239,9 +236,9 @@ class Node {
             this.right.top = this.top;
 
 
-            this.top.draw(need_visualization);
-            this.left.draw(need_visualization);
-            this.right.draw(need_visualization);
+            this.top.draw(visible);
+            this.left.draw(visible);
+            this.right.draw(visible);
         }
       };
     

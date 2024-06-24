@@ -295,7 +295,7 @@ a{
       grid-row: 12;
     }
     .gui_info{
-      grid-column: 6/13;
+      grid-column: 5/13;
       grid-row: 1;
     }
     .map-container {
