@@ -293,7 +293,9 @@ class Hanoi {
                 if(this.help_map){
                     this.map_center_button.click();
                 }
-                this.moves_count += 1;
+                if(!this.translate(stack)===this.translate(buffor)){
+                    this.moves_count += 1;
+                }
                 this.mainBuffer.clear();
                 this.canBeAddedVisualization(null);
                 stack.addRing(bufferedRing, this.pattern);
@@ -405,6 +407,7 @@ class Hanoi {
     hanoi_complete(){
         this.complete_clock.textContent = this.clock.textContent;
         this.divInfo.classList.add("solv");
+        this.divMapContainer.classList.remove("expanded");
         const hanoi = this;
         setTimeout(function() {
             hanoi.parent.appendChild(hanoi.divComplete);
@@ -414,15 +417,16 @@ class Hanoi {
     }
 
     translate(value){
-        if(value == this.StacksDict['a'] || value == this.StackDivsDict['a'] || value == this.buffersDict['a']){
-            return "a"
+        const dictionaries = [this.StackDivsDict, this.StacksDict, this.buffersDict];
+    
+        for (let i = 0; i < dictionaries.length; i++) {
+            for (let key in dictionaries[i]) {
+                if (dictionaries[i][key] === value) {
+                    return key;
+                }
+            }
         }
-        if(value == this.StacksDict['b'] || value == this.StackDivsDict['b'] || value == this.buffersDict['b']){
-            return "b"
-        }
-        if(value == this.StacksDict['c'] || value == this.StackDivsDict['c'] || value == this.buffersDict['c']){
-            return "c"
-        }
+        return null;
     }
 
   
