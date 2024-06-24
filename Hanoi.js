@@ -293,7 +293,7 @@ class Hanoi {
                 if(this.help_map){
                     this.map_center_button.click();
                 }
-                if(!this.translate(stack)===this.translate(buffor)){
+                if(this.translate(stack) != this.translate(bufferedRing.parent)){
                     this.moves_count += 1;
                 }
                 this.mainBuffer.clear();
