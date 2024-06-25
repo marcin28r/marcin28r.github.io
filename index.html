@@ -26,12 +26,11 @@
     
     <section id="history">
        <h2 content="nav-1">Historia</h1>
-          <div>
-            <p content="history-1"></p>
-            <img src="content/Lucas.png" alt="Eudardo Lucas photo">       
-          </div>
-            <i  content="history-2" font-></i>
-          
+        <div>
+          <p content="history-1"></p>
+          <img src="content/Lucas.png" alt="Eudardo Lucas photo">       
+        </div>
+        <i  content="history-2" font-></i>     
     </section>
 
     <section id="rules">
@@ -45,50 +44,41 @@
           </ul>
           <img src="content/hanoiABC2.png" alt="Układ Hanoi"> 
         </div>
-  
     </section>
 
-      <section id="algorithms">
-        <h2 content="nav-3">Algorytmy</h1>
-          <p content="alg-1"></p>
+    <section id="algorithms">
+      <h2 content="nav-3">Algorytmy</h1>
+      <p content="alg-1"></p>
 
 
           
-            <h3 content="h3recursive"></h2>
-              <p content="alg-rec">Resursive</p>
-            <div>
-              <div>
-              <div>
-                <p content="alg-rec-1">Resursive</p>
-              </div>
-              <div>
-                <ul>
-                  <li content="rrule-1"></li>
-                  <li content="rrule-2"></li>
-                  <li content="rrule-3"></li>
-                </ul>
-              </div>
-              </div>
-              <img src="content/rekurencyjnie.png" alt="Układ Hanoi"> 
-
-            </div>
-
-
-
-            <h3 content="h3binary"></h2>
-            <div>
-                  <p content="alg-bin-1">Binary </p>
-                
-  
-
-          
-            <img src="content/hanoi_bin.png" alt="Układ Hanoi"> 
+      <h3 content="h3recursive"></h2>
+      <p content="alg-rec">Resursive</p>
+      <div>
+        <div>
+          <div>
+            <p content="alg-rec-1">Resursive</p>
           </div>
+        <div>
+          <ul>
+            <li content="rrule-1"></li>
+            <li content="rrule-2"></li>
+            <li content="rrule-3"></li>
+          </ul>
+        </div>
+        </div>
+        <img src="content/rekurencyjnie.png" alt="Układ Hanoi"> 
+      </div>
 
 
-          <h3 content="h3iterative"></h2>
-          
-          <p content="alg-ite-1">Iterative</p>
+
+      <h3 content="h3binary"></h2>
+        <div>
+          <p content="alg-bin-1">Binary </p>
+          <img src="content/hanoi_bin.png" alt="Układ Hanoi"> 
+        </div>
+        <h3 content="h3iterative"></h2>
+        <p content="alg-ite-1">Iterative</p>
         <div>
           <ul>
             <li content="irule-1"></li>
@@ -99,19 +89,26 @@
     </section>
     <section id="app">
        <h2 content="nav-4">Podręcznik</h1>
-        <p>W celu zaznajomienia użytkownika z funkcjonowaniem aplikacji, aspekt informacyjny
-           obejmuje również poradnik dla użytkownika. Działanie to pozwoli na zaprezentowanie 
-           możliwości aplikacji, przez co użytkownik będzie mógł dostosować ją do
-        swoich własnych preferencji. Część interaktywna będzie pozwalała na dostosowanie
-        wyzwania do umiejętności, ambicji czy cierpliwości układającego.
-        Pozwoli na to konfigurator, który obejmuje możliwość dostosowania:
-      </p>
-      <ul>
-        <li>ilości krążków;</li>
-        <li>ułatwień układania wież;</li>
-        <li>kwesti widoczności czy estatycznych;</li>
-      </ul>
-    </section>
+        <p content="">Aplikacja poza elementem informacyjnym zawiera również interaktywną układankę wież Hanoi. Po wyborze opcji "Układaj" w nawigacji przeniesie użytkownika do konfiguratora łamigłówki. </p>
+        <div>
+          <div>
+            <p>Cały proces przekładania polega na klikaniu w trzy panele ze stosami. Kiedy klikniemy na konkretny stos, krążek z jego szczytu zostanie zawieszony nad nim. Kiedy natomiast jeden krążek jest już w górze, a my klikniemy na kolejny stos, krążek zostanie na nim umieszczony. Oczywiście istotne aby przełożenie uwzględniało zasady. W przeciwnym wypadku, niedozwolony ruch zostanie zasygnalizowany. Stos, na którym aktualne chcieliśmy położyć za duży krążek, podświetli się kolorem czerwonym. Zawsze widoczny jest również panel który wyświetla informacje o danej parti. Z lewej widnieją numery, które odzwierciedlają ilość ruchów wykonanych w stosunku do tych optymalnych. Po prawej stronie możemy śledzić upływający czas. Kiedy układanka zostanie ułożona panel informacyjny podświetli się na zielono, a zaraz po ty pokaże się panel z podsumowaniem. Z penelu możemy wybrać jedną z trzech opcji. Pierwsza "Jeszcze raz" pozwoli układać łamigłówke w tej samej konfiguracji. Druga przeniesie nas do konfiguratora, a ostatnia do strony początkowej.</p>
+          </div>
+
+          <div>
+          <h3 content="">Konfigurator pozwala na dostosowanie:</h3>
+          <ul>
+            <li content="">ilości krążków - należy pamiętać, że im więcej krążków tym większa liczba ruchów potrzebna do ułożenia łamigłówki, przez co poziom trudności jest zwiększony</li>
+            <li content="">wyświatlania krążków - jedna z trzech opcji wyświetlania krążków (drewniane, kolorowe, we wzory) może poprawić ich widoczność lub po prostu uprzyjemnić układanie</li>
+            <li content="">pojedyncza podpowiedź - opcja po wciśnięciu przycisku "wskazówka" sugeruje kolejne przełożenie, które w aktualnej sytuacji jest tym najbardziej optymalnym, kolejno podświetla w kolorze niebieskim palk, z którego należy pobrać krążek, a następnie ten na który powinniśmy go odłożyć </li>
+            <li content="">wskazywanie poprawnego odkładania - opcja która podświetla stosy na które możemy odłożyć aktualnie podniesiony krążek kolorem zielonym, wskazywanie jest aktywne pasywnie, opcja ta może być szczególnie pomocna dla osób, które  dopiero oswajają się z zasadami </li>
+            <li content="">automatyczne układanie - opcja udostępnia przycisk "auto", po którego aktywacji aplikacja będzie sama dążyć do ułożenia łamigłówki, należy zaznaczyć, że każdy z jej ruchów jest tym najbardziej optymalnym w danej sytuacji, kiedy opcja jest aktywna przycisk świeci się na zielono, a wyłączenie jej można zainicjować klikając na przycisk ponownie, aplikacja dokończy aktualne przełożenie i zakończy działanie</li>
+            <li content="">mapa ruchów - udostępnia panel w którym rozmieszczone są wszystkie możliwe ułożenia aktualnej łamigłówki, dostępny jest również przycisk "mapa", który zwiększa obszar wyświetlaina mapy</li>
+            <li content="">2 graczy - opcja dostępna i sugerowana jedynie na szerokich ekranach, pozwala na wyświetlenie dwóch podobnych łamigłówwek jedna obok drugiej, należy zwrócić uwagę, że którakolwiek z opcji powrotu kończy działanie obu z nich</li>
+          </ul>
+        </div>
+        </div>
+      </section>
 
     <footer id="bottom-menu"><p>Author</p></footer>
   </main> 

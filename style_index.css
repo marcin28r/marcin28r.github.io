@@ -137,8 +137,7 @@ main div button{
     background-size: 100% 100%;
 }
 section div ul{
-    margin-top: 0;
-    padding: 0 20px 30px 40px;
+    padding: 10px 20px 10px 40px;
 }
 section > *:last-child {
     padding-bottom: 100px
@@ -150,7 +149,7 @@ section > *:last-child {
         flex-direction: column;
     }
     section div div p, section div div ul{
-        width: 100%;
+        width: 90%;
     }
     h3{
         margin-left: 40px;
