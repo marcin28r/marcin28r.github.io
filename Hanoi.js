@@ -171,7 +171,7 @@ class Hanoi {
             this.hint_button = document.createElement('button');
             this.hint_button.setAttribute('content', 'hint-button-text');
             this.hint_button.addEventListener('click', function(){
-                hanoi.helpMoveVisualization();
+                hanoi.helpHint();
                });
 
                this.divGui.appendChild(this.hint_button);
@@ -251,7 +251,6 @@ class Hanoi {
         }
         
         if(this.start_node){
-
             this.actual_node = this.start_node;
         }else if(this.help_move || this.help_map || this.help_autoMove ){
             var nodes = new Node(this.divMap, this.stackHeight, this.divMap);
@@ -297,7 +296,7 @@ class Hanoi {
                     this.moves_count += 1;
                 }
                 this.mainBuffer.clear();
-                this.canBeAddedVisualization(null);
+                this.possibleMoves(null);
                 stack.addRing(bufferedRing, this.pattern);
                 this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
                 if(stack == this.StacksDict['c'] && stack.testStack() && !this.solved){
@@ -318,7 +317,7 @@ class Hanoi {
         } else {
             if(stack.getLength() > 0){
                 const topRing = stack.getTopRing();
-                this.canBeAddedVisualization(topRing);
+                this.possibleMoves(topRing);
                 this.mainBuffer.setRing(topRing);
                 stack.removeRing();
                 this.mainBuffer.displayNumber(buffor, this.pattern);
@@ -329,7 +328,7 @@ class Hanoi {
         }
     }
 
-    canBeAddedVisualization(ring){
+    possibleMoves(ring){
         if(ring && this.help_canBeAdded){
             for(let key in this.StacksDict){
                 if(this.StacksDict[key].canBeAdded(ring.number)){
@@ -344,7 +343,7 @@ class Hanoi {
         }
     }
 
-    helpMoveVisualization(){
+    helpHint(){
         if(this.help_move){
             var from = this.actual_node.help_from();
             var to = this.actual_node.help_to();
