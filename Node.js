@@ -120,11 +120,9 @@ class Node {
     };
 
     move(from, to, value){
-        if(from instanceof Node && to instanceof Node && to.getHanoiLength() === 0 && from.getHanoiLength() > 0){
-            // console.log(from.hanoi);
+        if(from instanceof Node && to instanceof Node 
+            && to.getHanoiLength() === 0 && from.getHanoiLength() > 0){
             let x = value;
-
-
             from.hanoi.forEach(element =>{
                 to.hanoi.push(element)
             })

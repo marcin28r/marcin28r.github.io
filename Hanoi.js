@@ -301,7 +301,7 @@ class Hanoi {
                 this.moves.textContent = `${this.moves_count}/${2**this.stackHeight - 1}`;
                 if(stack == this.StacksDict['c'] && stack.testStack() && !this.solved){
                     this.stop();
-                    this.hanoi_complete();
+                    this.hanoiComplete();
                     var temp = this.moves.textContent;
                     this.complete_moves.textContent = temp;
                     this.solved = true;
@@ -403,7 +403,7 @@ class Hanoi {
         }
     }
 
-    hanoi_complete(){
+    hanoiComplete(){
         this.complete_clock.textContent = this.clock.textContent;
         this.divInfo.classList.add("solv");
         this.divMapContainer.classList.remove("expanded");
