@@ -177,9 +177,8 @@ a{
     z-index: 2;
     grid-column-start: 1;
     grid-column-end: 13;
-    /* grid-row-start: 1;
-    grid-row-end: 12; */
-    height: calc(100vh/12 * 11 + 10px);
+    grid-row-start: 1;
+    grid-row-end: 12;
     background-color: rgb(241, 240, 232);
     overflow-y: scroll;
     overflow-x: auto;
