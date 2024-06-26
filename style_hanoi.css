@@ -366,7 +366,7 @@ a{
   height: 5%;
   background-color: rgb(37, 104, 136);
   border-radius: 5px 5px 0 0;
-  z-index: 2;
+  z-index: 1;
 }
 .gui_buttons button.active{
   background-color: rgb(183, 230, 183);
