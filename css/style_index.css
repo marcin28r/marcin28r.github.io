@@ -82,17 +82,11 @@ section p,section i,section ul{
     color:  rgb(37, 104, 136);
     padding: 10px 20px 10px 20px;
 }
-h1, h2{
+h1, h2, h3{
     font-family: Arial, sans-serif;
     align-items: center;
     display: flex;
     justify-content: center;
-}
-h3{
-    color:  rgb(37, 104, 136);
-    font-family: Arial, sans-serif;
-    margin-left: 10px;
-    margin-bottom: 0;
 }
 section img{
     width: 100%;
