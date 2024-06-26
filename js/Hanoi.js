@@ -144,7 +144,7 @@ class Hanoi {
         this.back_button = document.createElement('button');
         this.back_button.setAttribute("content", "back-text");
         this.back_button.addEventListener('click', function(){
-            window.location.href = 'index.html';
+            window.location.href = 'hanoi.html';
            });
         this.divComplete.appendChild(this.back_button);
         
