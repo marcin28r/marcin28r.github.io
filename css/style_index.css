@@ -155,9 +155,6 @@ section > *:last-child {
     section div div p, section div div ul{
         width: 90%;
     }
-    h3{
-        margin-left: 40px;
-    }
     section div p, section div i, section div ul{
         width: 50%;
         height: 100%;
@@ -193,9 +190,6 @@ section > *:last-child {
     section div img{
         max-width: 400px;
         max-height: 450px;
-    }
-    h3{
-        margin-left: 13%;
     }
     section div, p, img, ul, i{
         width: 80%;
