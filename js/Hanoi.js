@@ -137,14 +137,14 @@ class Hanoi {
         this.new_hanoi_button = document.createElement('button');
         this.new_hanoi_button.setAttribute("content", "new-text");
         this.new_hanoi_button.addEventListener('click', function(){
-            window.location.href = 'application.html';
+            window.location.href = 'hanoi.html';
            });
         this.divComplete.appendChild(this.new_hanoi_button);
          
         this.back_button = document.createElement('button');
         this.back_button.setAttribute("content", "back-text");
         this.back_button.addEventListener('click', function(){
-            window.location.href = 'hanoi.html';
+            window.location.href = 'index.html';
            });
         this.divComplete.appendChild(this.back_button);
         
