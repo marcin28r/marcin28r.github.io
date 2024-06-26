@@ -140,6 +140,10 @@ section div ul{
 section > *:last-child {
     padding-bottom: 100px
 }
+section div h3{
+    padding: 0;
+    margin: auto;
+}
 @media screen and (min-width: 700px) {
     section div div{
         width: 90%;
