@@ -70,12 +70,12 @@
 #patern:hover{
     font-weight: bold;
     color: rgb(255, 255, 255);
-    background-image: url("content/patern1.png");
+    background-image: url("../content/patern1.png");
     transition:  0.5s;
 }
 #wood:hover{
     background-color: rgb(233, 224, 209);
-    background-image: url("content/drewno2.png");
+    background-image: url("../content/drewno2.png");
     background-size: cover;
     transition:  0.5s;
 }
@@ -87,13 +87,13 @@
 }
 .radio_card_container label input[type=radio]:checked + #wood{
     background-color: rgb(233, 224, 209);
-    background-image: url("content/drewno2.png");
+    background-image: url("../content/drewno2.png");
     background-size: cover;
 }
 .radio_card_container label input[type=radio]:checked + #patern{
     color: rgb(255, 255, 255);
     font-weight: bold;
-    background-image: url("content/patern1.png");
+    background-image: url("../content/patern1.png");
 }
 /* .container_number{
     width: 12%;

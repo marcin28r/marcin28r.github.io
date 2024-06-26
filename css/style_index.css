@@ -133,11 +133,11 @@ main div button{
     cursor: pointer;
 }
 #pl-button{
-    background-image: url("content/polish.png");
+    background-image: url("../content/polish.png");
     background-size: 100% 100%;
 }
 #en-button{
-    background-image: url("content/english.png");
+    background-image: url("../content/english.png");
     background-size: 100% 100%;
 }
 section div ul{

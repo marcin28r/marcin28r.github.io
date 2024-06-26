@@ -62,20 +62,20 @@ body{
     flex-direction: column-reverse; 
     justify-content: flex-start;
     align-items: center;
-    background-image: url("content/tyczka.png");
+    background-image: url("../content/tyczka.png");
     background-size: 100% 100%;
   }
   .stackDiv.canBeAdded{
     background-color: rgb(183, 230, 183);
-    background-image: url("content/tyczka.png");
+    background-image: url("../content/tyczka.png");
   }
   .stackDiv.wrong{
     background-color: rgb(233, 134, 134);
-    background-image: url("content/tyczka.png");
+    background-image: url("../content/tyczka.png");
   }
   .stackDiv.hint{
     background-color: rgb(138, 213, 216);
-    background-image: url("content/tyczka.png");
+    background-image: url("../content/tyczka.png");
   }
   .gui_buttons{
     display: flex;
