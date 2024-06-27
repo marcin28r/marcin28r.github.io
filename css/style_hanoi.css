@@ -135,7 +135,7 @@ a{
   .ring {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px; 
-    z-index: 2;
+    z-index: 1;
     height: 6%;
     order: 2;
   }
