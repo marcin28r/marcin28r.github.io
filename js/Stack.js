@@ -27,7 +27,7 @@ class Stack {
     testStack() {
       if(this.stack.length > 0){
         if(this.stack.length == this.stack[0].height){
-          console.log("WIN!");
+          // console.log("WIN!");
           return true;
         }else return false;
       }

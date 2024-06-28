@@ -78,7 +78,6 @@ section{
 }
 section p,section i,section ul{
     font-family: Georgia, serif;
-    text-align: justify;
     /* text-overflow: ellipsis; */
     color:  rgb(37, 104, 136);
     padding: 10px 20px 10px 20px;
@@ -145,6 +144,9 @@ section > *:last-child {
     padding-bottom: 100px
 }
 @media screen and (min-width: 700px) {
+    section p,section i,section ul{
+        text-align: justify;
+    }
     section div div{
         width: 100%;
         display: flex;
